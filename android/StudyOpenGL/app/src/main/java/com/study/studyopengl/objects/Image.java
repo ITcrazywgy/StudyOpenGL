@@ -22,6 +22,7 @@ public class Image {
             1.0f, -1.0f, 1.0f, 1.0f
     };
 
+
     private final VertexArray vertexArray;
 
     public Image() {
@@ -45,5 +46,6 @@ public class Image {
     public void draw() {
         glDrawArrays(GL_TRIANGLE_STRIP, 0, VERTEX_DATA.length / TOTAL_COMPONENT_COUNT);
     }
+
 
 }

@@ -47,15 +47,22 @@ public class ImageRenderer extends BaseRenderer {
     }
 
 
+    private float[] imageSize;
+
     @Override
     public void onSurfaceChanged(GL10 glUnused, int width, int height) {
         glViewport(0, 0, width, height);
         float viewRatio = (float) width / (float) height;
         float imageRatio = (float) bitmapWidth / (float) bitmapHeight;
+        imageSize = new float[2];
         if (imageRatio > viewRatio) { //图片比较矮肥
             orthoM(-1, 1, -imageRatio / viewRatio, imageRatio / viewRatio, -1f, 1);
+            imageSize[0] = width;
+            imageSize[1] = Math.round(imageSize[0] / imageRatio);
         } else { //图片比较高瘦
             orthoM(-viewRatio / imageRatio, viewRatio / imageRatio, -1, 1, -1f, 1);
+            imageSize[1] = height;
+            imageSize[0] = Math.round(imageSize[1] * imageRatio);
         }
     }
 
@@ -64,7 +71,7 @@ public class ImageRenderer extends BaseRenderer {
     public void onDrawFrame(GL10 glUnused) {
         glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
         program.useProgram();
-        program.setUniforms(getProjectMatrix(), texture);
+        program.setUniforms(getProjectMatrix(), texture, imageSize, 6);
         image.bindData(program);
         image.draw();
     }

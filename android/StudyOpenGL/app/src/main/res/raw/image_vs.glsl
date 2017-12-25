@@ -9,6 +9,5 @@ varying vec4 v_Position_Changed;
 void main(){
     gl_Position=u_Matrix*a_Position;
     v_TextureCoordinates=a_TextureCoordinates;
-    v_Position=a_Position;
-    v_Position_Changed=gl_Position;
+    v_Position=gl_Position;
 }
