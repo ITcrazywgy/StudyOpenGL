@@ -24,6 +24,7 @@ public class BallRenderer extends BaseRenderer{
     private Ball ball;
 
     public BallRenderer(Context context) {
+        super();
         this.context = context;
     }
 
@@ -40,15 +41,16 @@ public class BallRenderer extends BaseRenderer{
     public void onSurfaceChanged(GL10 glUnused, int width, int height) {
         glViewport(0, 0, width, height);
         float r = (float) width / (float) height;
-        //透视矩阵
-        frustumM( -r, r, -1f, 1f, 3f, 20f);
+
         //视图矩阵
-        setLookAtM(0.0f, 0.0f, 10.0f
-                , 0f, 0f, 0f
-                , 0f, 1.0f, 0.0f);
+        setLookAtM(0.0f, 0.0f, 5.0f, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
+
+        //透视矩阵
+        frustumM( -1f, 1f, -1/r, 1/r, 3.0f, 10f);
+
     }
 
-    private int angle;
+    private float angle;
 
     @Override
     public void onDrawFrame(GL10 glUnused) {
@@ -56,8 +58,7 @@ public class BallRenderer extends BaseRenderer{
         lightProgram.useProgram();
 
         setIdentityM(getModelMatrix());
-        translateM(0, 0, -2.5f);
-        rotateM((angle+=3),1f,1f,1f);
+        rotateM((angle+=0.5),1f,1f,1f);
 
         lightProgram.setUniforms(getMvpMatrix());
         ball.bindData(lightProgram);

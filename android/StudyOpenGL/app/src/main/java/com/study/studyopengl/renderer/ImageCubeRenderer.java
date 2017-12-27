@@ -3,8 +3,10 @@ package com.study.studyopengl.renderer;
 import android.content.Context;
 
 import com.study.studyopengl.R;
-import com.study.studyopengl.objects.Earth;
-import com.study.studyopengl.programs.EarthProgram;
+import com.study.studyopengl.objects.ImageCube;
+import com.study.studyopengl.objects.Pyramid;
+import com.study.studyopengl.programs.ImageCubeProgram;
+import com.study.studyopengl.programs.PyramidProgram;
 import com.study.studyopengl.util.TextureHelper;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -19,29 +21,24 @@ import static android.opengl.GLES20.glEnable;
 import static android.opengl.GLES20.glViewport;
 
 
-public class EarthRenderer extends BaseRenderer {
+public class ImageCubeRenderer extends BaseRenderer {
     private final Context context;
 
-    private EarthProgram program;
-    private Earth earth;
-    private int textureDay;
-    private int textureNight;
+    private ImageCubeProgram program;
+    private ImageCube imageCube;
+    private int texture;
 
-    private float[] lightPosition;
-
-    public EarthRenderer(Context context) {
-        super();
+    public ImageCubeRenderer(Context context) {
         this.context = context;
     }
 
     @Override
     public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glEnable(GL_DEPTH_TEST);
-        program = new EarthProgram(context);
-        earth = new Earth();
-        textureDay = TextureHelper.loadTexture(context, R.drawable.earth_day);
-        textureNight = TextureHelper.loadTexture(context, R.drawable.earth_night);
+        program = new ImageCubeProgram(context);
+        imageCube = new ImageCube();
+        texture = TextureHelper.loadTexture(context, R.drawable.girl);
     }
 
 
@@ -49,12 +46,12 @@ public class EarthRenderer extends BaseRenderer {
     public void onSurfaceChanged(GL10 glUnused, int width, int height) {
         glViewport(0, 0, width, height);
         float r = (float) width / (float) height;
-        orthoM(-1f, 1f, -1/r, 1/r, -1f, 1f);
-        lightPosition = new float[]{100, 5, 0};
+        setLookAtM(0.0f, 0.0f, 3f, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
+        frustumM(-r, r, -1f, 1f, 1f, 10f);
     }
 
-
     private float angle;
+    private boolean isRotateY = true;
 
     @Override
     public void onDrawFrame(GL10 glUnused) {
@@ -62,12 +59,21 @@ public class EarthRenderer extends BaseRenderer {
         program.useProgram();
 
         setIdentityM(getModelMatrix());
-        scaleM(0.8f,0.8f,0.8f);
-        rotateM((angle += 1), 0f, 1f, 0f);
+        translateM(0f, 0f, -1f);
 
-        program.setUniforms(getMvpMatrix(), getModelMatrix(), getCameraPosition(), lightPosition, textureDay, textureNight);
-        earth.bindData(program);
-        earth.draw();
+        if (isRotateY) {
+            rotateM((angle += 1), 0f, 1f, 0f);
+        } else {
+            rotateM((angle += 1), 1f, 0f, 0f);
+        }
+
+        if (angle % 360 == 0) {
+            isRotateY = !isRotateY;
+        }
+
+        program.setUniforms(getMvpMatrix(), texture);
+        imageCube.bindData(program);
+        imageCube.draw();
     }
 
 }

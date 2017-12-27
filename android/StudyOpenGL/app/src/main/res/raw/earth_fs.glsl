@@ -20,10 +20,10 @@ void main()
 
     if(v_Diffuse.x>0.21){
         gl_FragColor = finalColorDay;
-    }else if(v_Diffuse.x<0.05){
+    }else if(v_Diffuse.x<0.01){
         gl_FragColor = finalColorNight;
     }else{
-        float t = (v_Diffuse.x - 0.05)/0.16;
+        float t = (v_Diffuse.x - 0.01)/0.20;
         gl_FragColor = t*finalColorDay+(1.0-t)*finalColorNight;
     }
 
