@@ -69,7 +69,6 @@ public class ShaderHelper {
         final int[] compileStatus = new int[1];
         glGetShaderiv(shaderObjectId, GL_COMPILE_STATUS,
                 compileStatus, 0);
-
         // Print the shader info log to the Android log output.
         Log.v(TAG, "Results of compiling source:" + "\n" + shaderCode
                 + "\n:" + glGetShaderInfoLog(shaderObjectId));
@@ -116,6 +115,7 @@ public class ShaderHelper {
         final int[] linkStatus = new int[1];
         glGetProgramiv(programObjectId, GL_LINK_STATUS,
                 linkStatus, 0);
+
 
         // Print the program info log to the Android log output.
         Log.v(

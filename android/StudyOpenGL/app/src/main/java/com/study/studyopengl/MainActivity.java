@@ -15,14 +15,13 @@ import android.content.pm.ConfigurationInfo;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.study.studyopengl.renderer.BallRenderer;
-import com.study.studyopengl.renderer.CubeRenderer;
-import com.study.studyopengl.renderer.CylinderRenderer;
 import com.study.studyopengl.renderer.EarthRenderer;
-import com.study.studyopengl.renderer.ImageRenderer;
-import com.study.studyopengl.renderer.PyramidRenderer;
+import com.study.studyopengl.renderer.ImageCubeRenderer;
 
 import static android.opengl.GLSurfaceView.RENDERMODE_CONTINUOUSLY;
 
@@ -36,6 +35,10 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //取消状态栏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         glSurfaceView = new GLSurfaceView(this);
         // Check if the system supports OpenGL ES 2.0.
         ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -54,7 +57,8 @@ public class MainActivity extends Activity {
             //glSurfaceView.setRenderer(new BallRenderer(this));
             //glSurfaceView.setRenderer(new PyramidRenderer(this));
             //glSurfaceView.setRenderer(new EarthRenderer(this));
-            glSurfaceView.setRenderer(new ImageRenderer(this));
+            //glSurfaceView.setRenderer(new ImageRenderer(this));
+            glSurfaceView.setRenderer(new ImageCubeRenderer(this));
             glSurfaceView.setRenderMode(RENDERMODE_CONTINUOUSLY);
             rendererSet = true;
         } else {

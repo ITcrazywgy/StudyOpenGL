@@ -13,6 +13,11 @@ public abstract class BaseRenderer implements GLSurfaceView.Renderer {
     // mpvMatrix = projectMatrix * viewMatrix * modelMatrix
     private final float[] mvpMatrix = new float[16];
 
+    protected BaseRenderer(){
+        Matrix.setIdentityM(modelMatrix,0);
+        Matrix.setIdentityM(viewMatrix,0);
+        Matrix.setIdentityM(projectMatrix,0);
+    }
 
     //透视矩阵
     protected void frustumM(float left, float right, float bottom, float top, float near, float far) {
@@ -54,6 +59,10 @@ public abstract class BaseRenderer implements GLSurfaceView.Renderer {
 
     protected void rotateM(float a, float x, float y, float z) {
         Matrix.rotateM(modelMatrix, 0, a, x, y, z);
+    }
+
+    protected void scaleM(float x, float y, float z) {
+        Matrix.scaleM(modelMatrix, 0,  x, y, z);
     }
 
 
