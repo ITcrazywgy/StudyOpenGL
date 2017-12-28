@@ -18,6 +18,7 @@ import static android.opengl.GLES20.glActiveTexture;
 import static android.opengl.GLES20.glBindTexture;
 import static android.opengl.GLES20.glGetAttribLocation;
 import static android.opengl.GLES20.glGetUniformLocation;
+import static android.opengl.GLES20.glUniform1f;
 import static android.opengl.GLES20.glUniform1i;
 import static android.opengl.GLES20.glUniform2fv;
 import static android.opengl.GLES20.glUniform3fv;
@@ -32,8 +33,9 @@ public class ImageProgram extends ShaderProgram {
     private final int uMatrixLocation;
     private final int uTextureUnitLocation;
     private final int uChangeTypeLocation;
-    private final int uImageSizetLocation;
+    private final int uImageSizeLocation;
     private final int uChangeDataLocation;
+
 
     // Attribute locations
     private final int aPositionLocation;
@@ -45,10 +47,12 @@ public class ImageProgram extends ShaderProgram {
         uTextureUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT);
         uChangeTypeLocation = glGetUniformLocation(program, U_CHANGETYPE);
         uChangeDataLocation = glGetUniformLocation(program, U_CHANGEDATA);
-        uImageSizetLocation = glGetUniformLocation(program, U_IMAGESIZE);
+        uImageSizeLocation = glGetUniformLocation(program, U_IMAGESIZE);
+
 
         aPositionLocation = glGetAttribLocation(program, A_POSITION);
         aTextureCoordinatesLocation = glGetAttribLocation(program, A_TEXTURE_COORDINATES);
+
     }
 
     private final float[][] IMAGE_CHANGE_DATA = new float[][]{
@@ -58,7 +62,7 @@ public class ImageProgram extends ShaderProgram {
             , {0.0f, 0.0f, 0.1f}//冷色调
             , {0.5f, 0.5f, 0.5f}//浮雕 （差值+灰度）
             , {0f, 0f, 0f}//图像对比度增强
-            , {0f, 0f, 256f}//放大镜
+            , {0.5f, 0.5f, 2f}// 放大镜  （以纹理中心放大2倍）
             , {0f, 0f, 10f}//马赛克
             , {0f, 0f, 0f}//图像扭曲
             , {0f, 0f, 0f}//图像颠倒
@@ -72,7 +76,8 @@ public class ImageProgram extends ShaderProgram {
         glUniformMatrix4fv(uMatrixLocation, 1, false, matrix, 0);
         glUniform1i(uChangeTypeLocation, changeType);
         glUniform3fv(uChangeDataLocation, 1, IMAGE_CHANGE_DATA[changeType], 0);
-        glUniform2fv(uImageSizetLocation, 1, imageSize, 0);
+        glUniform2fv(uImageSizeLocation, 1, imageSize, 0);
+
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, textureId);

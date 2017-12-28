@@ -71,7 +71,7 @@ public class ImageRenderer extends BaseRenderer {
     public void onDrawFrame(GL10 glUnused) {
         glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
         program.useProgram();
-        program.setUniforms(getProjectMatrix(), texture, imageSize, 6);
+        program.setUniforms(getProjectMatrix(), texture, imageSize, 8);
         image.bindData(program);
         image.draw();
     }

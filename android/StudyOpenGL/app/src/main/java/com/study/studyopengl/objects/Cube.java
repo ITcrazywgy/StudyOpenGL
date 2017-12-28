@@ -1,16 +1,12 @@
-
 package com.study.studyopengl.objects;
 
 import com.study.studyopengl.data.IndexArray;
 import com.study.studyopengl.data.VertexArray;
 import com.study.studyopengl.programs.CubeProgram;
-import com.study.studyopengl.programs.CylinderProgram;
-
 import static android.opengl.GLES20.GL_TRIANGLES;
 import static android.opengl.GLES20.GL_UNSIGNED_BYTE;
 import static android.opengl.GLES20.glDrawElements;
 import static com.study.studyopengl.Constants.BYTES_PER_FLOAT;
-
 
 public class Cube {
     private static final int POSITION_COMPONENT_COUNT = 3;
