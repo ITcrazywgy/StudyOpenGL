@@ -4,9 +4,7 @@ import android.content.Context;
 
 import com.study.studyopengl.R;
 import com.study.studyopengl.objects.ImageCube;
-import com.study.studyopengl.objects.Pyramid;
 import com.study.studyopengl.programs.ImageCubeProgram;
-import com.study.studyopengl.programs.PyramidProgram;
 import com.study.studyopengl.util.TextureHelper;
 
 import javax.microedition.khronos.egl.EGLConfig;
