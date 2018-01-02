@@ -1,0 +1,6 @@
+D:/StudyOpenGL/c/StudyOpenGL/cmake-build-debug/CMakeFiles/1.getting_started__4.2.textures_combined.dir
+D:/StudyOpenGL/c/StudyOpenGL/cmake-build-debug/CMakeFiles/STB_IMAGE.dir
+D:/StudyOpenGL/c/StudyOpenGL/cmake-build-debug/CMakeFiles/GLAD.dir
+D:/StudyOpenGL/c/StudyOpenGL/cmake-build-debug/CMakeFiles/1.getting_started__3.3.shaders_class.dir
+D:/StudyOpenGL/c/StudyOpenGL/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/StudyOpenGL/c/StudyOpenGL/cmake-build-debug/CMakeFiles/rebuild_cache.dir

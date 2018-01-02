@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.study.studyopengl.renderer.BallRenderer;
 import com.study.studyopengl.renderer.EarthRenderer;
 import com.study.studyopengl.renderer.ImageCubeRenderer;
+import com.study.studyopengl.renderer.TeapotRenderer;
 
 import static android.opengl.GLSurfaceView.RENDERMODE_CONTINUOUSLY;
 
@@ -58,7 +59,8 @@ public class MainActivity extends Activity {
             //glSurfaceView.setRenderer(new PyramidRenderer(this));
             //glSurfaceView.setRenderer(new EarthRenderer(this));
             //glSurfaceView.setRenderer(new ImageRenderer(this));
-            glSurfaceView.setRenderer(new ImageCubeRenderer(this));
+            //glSurfaceView.setRenderer(new ImageCubeRenderer(this));
+            glSurfaceView.setRenderer(new TeapotRenderer(this));
             glSurfaceView.setRenderMode(RENDERMODE_CONTINUOUSLY);
             rendererSet = true;
         } else {

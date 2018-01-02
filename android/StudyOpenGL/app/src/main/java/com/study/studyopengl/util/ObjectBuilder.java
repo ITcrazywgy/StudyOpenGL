@@ -1,6 +1,9 @@
 
 package com.study.studyopengl.util;
 
+import com.study.studyopengl.util.Geometry.Circle;
+import com.study.studyopengl.util.Geometry.Point;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +18,6 @@ public class ObjectBuilder {
     public interface DrawCommand {
         void draw();
     }
-
     public static class GeneratedData {
         public float[] vertexData;
         public List<DrawCommand> drawList;
@@ -25,6 +27,19 @@ public class ObjectBuilder {
             this.drawList = drawList;
         }
     }
+
+    private final float[] vertexData;
+    private final List<DrawCommand> drawList = new ArrayList<>();
+    private int offset = 0;
+
+    private ObjectBuilder(int sizeInVertices) {
+        vertexData = new float[sizeInVertices * FLOATS_PER_VERTEX];
+    }
+
+    private GeneratedData build() {
+        return new GeneratedData(vertexData, drawList);
+    }
+
 
     public static GeneratedData createCylinder(Point center, float radius, float height, int numPoints) {
         int size = sizeOfCircleInVertices(numPoints)*2 + sizeOfOpenCylinderInVertices(numPoints);
@@ -43,14 +58,6 @@ public class ObjectBuilder {
 
     private static int sizeOfOpenCylinderInVertices(int numPoints) {
         return (numPoints + 1) * 2;
-    }
-
-    private final float[] vertexData;
-    private final List<DrawCommand> drawList = new ArrayList<>();
-    private int offset = 0;
-
-    private ObjectBuilder(int sizeInVertices) {
-        vertexData = new float[sizeInVertices * FLOATS_PER_VERTEX];
     }
 
     private void appendCircle(Circle circle, int numPoints) {
@@ -107,7 +114,5 @@ public class ObjectBuilder {
         });
     }
 
-    private GeneratedData build() {
-        return new GeneratedData(vertexData, drawList);
-    }
+
 }

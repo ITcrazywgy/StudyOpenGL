@@ -1,0 +1,7 @@
+D:/StudyOpenGL/c/StudyOpenGL/CMakeFiles/1.getting_started__4.2.textures_combined.dir
+D:/StudyOpenGL/c/StudyOpenGL/CMakeFiles/STB_IMAGE.dir
+D:/StudyOpenGL/c/StudyOpenGL/CMakeFiles/GLAD.dir
+D:/StudyOpenGL/c/StudyOpenGL/CMakeFiles/1.getting_started__3.3.shaders_class.dir
+D:/StudyOpenGL/c/StudyOpenGL/CMakeFiles/rebuild_cache.dir
+D:/StudyOpenGL/c/StudyOpenGL/CMakeFiles/1.getting_started__7.3.camera_mouse_zoom.dir
+D:/StudyOpenGL/c/StudyOpenGL/CMakeFiles/edit_cache.dir

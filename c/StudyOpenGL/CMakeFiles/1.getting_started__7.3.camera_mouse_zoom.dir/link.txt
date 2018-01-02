@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2017.2.3\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\1.getting_started__7.3.camera_mouse_zoom.dir/objects.a
+D:\MinGW\bin\ar.exe cr CMakeFiles\1.getting_started__7.3.camera_mouse_zoom.dir/objects.a @CMakeFiles\1.getting_started__7.3.camera_mouse_zoom.dir\objects1.rsp
+D:\MinGW\bin\g++.exe -std=c++11 -g   -Wl,--whole-archive CMakeFiles\1.getting_started__7.3.camera_mouse_zoom.dir/objects.a -Wl,--no-whole-archive  -o bin\1.getting_started\1.getting_started__7.3.camera_mouse_zoom.exe -Wl,--out-implib,lib1.getting_started__7.3.camera_mouse_zoom.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\1.getting_started__7.3.camera_mouse_zoom.dir\linklibs.rsp

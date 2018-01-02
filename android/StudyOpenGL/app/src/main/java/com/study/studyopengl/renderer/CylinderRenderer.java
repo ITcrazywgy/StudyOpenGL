@@ -5,7 +5,8 @@ import android.util.Log;
 
 import com.study.studyopengl.objects.Cylinder;
 import com.study.studyopengl.programs.CylinderProgram;
-import com.study.studyopengl.util.Point;
+import com.study.studyopengl.util.Geometry;
+import com.study.studyopengl.util.Geometry.Point;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;

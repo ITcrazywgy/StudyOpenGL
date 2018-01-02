@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2017.2.3\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\Partice01.dir/objects.a
-D:\MinGW\bin\ar.exe cr CMakeFiles\Partice01.dir/objects.a @CMakeFiles\Partice01.dir\objects1.rsp
-D:\MinGW\bin\g++.exe  -std=c++11 -g   -Wl,--whole-archive CMakeFiles\Partice01.dir/objects.a -Wl,--no-whole-archive  -o Partice01.exe -Wl,--out-implib,libPartice01.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Partice01.dir\linklibs.rsp

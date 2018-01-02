@@ -1,3 +1,0 @@
-D:/StudyOpenGL/c/Pratice01/cmake-build-debug/CMakeFiles/Pratice01.dir
-D:/StudyOpenGL/c/Pratice01/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/StudyOpenGL/c/Pratice01/cmake-build-debug/CMakeFiles/rebuild_cache.dir
