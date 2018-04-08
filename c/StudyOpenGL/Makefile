@@ -110,19 +110,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named 1.getting_started__4.2.textures_combined
-
-# Build rule for target.
-1.getting_started__4.2.textures_combined: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 1.getting_started__4.2.textures_combined
-.PHONY : 1.getting_started__4.2.textures_combined
-
-# fast build rule for target.
-1.getting_started__4.2.textures_combined/fast:
-	$(MAKE) -f CMakeFiles\1.getting_started__4.2.textures_combined.dir\build.make CMakeFiles/1.getting_started__4.2.textures_combined.dir/build
-.PHONY : 1.getting_started__4.2.textures_combined/fast
-
-#=============================================================================
 # Target rules for targets named STB_IMAGE
 
 # Build rule for target.
@@ -136,6 +123,19 @@ STB_IMAGE/fast:
 .PHONY : STB_IMAGE/fast
 
 #=============================================================================
+# Target rules for targets named 1.getting_started__4.2.textures_combined
+
+# Build rule for target.
+1.getting_started__4.2.textures_combined: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 1.getting_started__4.2.textures_combined
+.PHONY : 1.getting_started__4.2.textures_combined
+
+# fast build rule for target.
+1.getting_started__4.2.textures_combined/fast:
+	$(MAKE) -f CMakeFiles\1.getting_started__4.2.textures_combined.dir\build.make CMakeFiles/1.getting_started__4.2.textures_combined.dir/build
+.PHONY : 1.getting_started__4.2.textures_combined/fast
+
+#=============================================================================
 # Target rules for targets named GLAD
 
 # Build rule for target.
@@ -147,6 +147,19 @@ GLAD: cmake_check_build_system
 GLAD/fast:
 	$(MAKE) -f CMakeFiles\GLAD.dir\build.make CMakeFiles/GLAD.dir/build
 .PHONY : GLAD/fast
+
+#=============================================================================
+# Target rules for targets named 3.model_loading__1.model_loading
+
+# Build rule for target.
+3.model_loading__1.model_loading: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 3.model_loading__1.model_loading
+.PHONY : 3.model_loading__1.model_loading
+
+# fast build rule for target.
+3.model_loading__1.model_loading/fast:
+	$(MAKE) -f CMakeFiles\3.model_loading__1.model_loading.dir\build.make CMakeFiles/3.model_loading__1.model_loading.dir/build
+.PHONY : 3.model_loading__1.model_loading/fast
 
 #=============================================================================
 # Target rules for targets named 1.getting_started__3.3.shaders_class
@@ -173,6 +186,19 @@ GLAD/fast:
 1.getting_started__7.3.camera_mouse_zoom/fast:
 	$(MAKE) -f CMakeFiles\1.getting_started__7.3.camera_mouse_zoom.dir\build.make CMakeFiles/1.getting_started__7.3.camera_mouse_zoom.dir/build
 .PHONY : 1.getting_started__7.3.camera_mouse_zoom/fast
+
+#=============================================================================
+# Target rules for targets named 4.advanced_opengl__2.stencil_testing
+
+# Build rule for target.
+4.advanced_opengl__2.stencil_testing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 4.advanced_opengl__2.stencil_testing
+.PHONY : 4.advanced_opengl__2.stencil_testing
+
+# fast build rule for target.
+4.advanced_opengl__2.stencil_testing/fast:
+	$(MAKE) -f CMakeFiles\4.advanced_opengl__2.stencil_testing.dir\build.make CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/build
+.PHONY : 4.advanced_opengl__2.stencil_testing/fast
 
 src/1.getting_started/3.3.shaders_class/shaders_class.obj: src/1.getting_started/3.3.shaders_class/shaders_class.cpp.obj
 
@@ -255,6 +281,60 @@ src/1.getting_started/7.3.camera_mouse_zoom/camera_mouse_zoom.cpp.s:
 	$(MAKE) -f CMakeFiles\1.getting_started__7.3.camera_mouse_zoom.dir\build.make CMakeFiles/1.getting_started__7.3.camera_mouse_zoom.dir/src/1.getting_started/7.3.camera_mouse_zoom/camera_mouse_zoom.cpp.s
 .PHONY : src/1.getting_started/7.3.camera_mouse_zoom/camera_mouse_zoom.cpp.s
 
+src/3.model_loading/1.model_loading/model_loading.obj: src/3.model_loading/1.model_loading/model_loading.cpp.obj
+
+.PHONY : src/3.model_loading/1.model_loading/model_loading.obj
+
+# target to build an object file
+src/3.model_loading/1.model_loading/model_loading.cpp.obj:
+	$(MAKE) -f CMakeFiles\3.model_loading__1.model_loading.dir\build.make CMakeFiles/3.model_loading__1.model_loading.dir/src/3.model_loading/1.model_loading/model_loading.cpp.obj
+.PHONY : src/3.model_loading/1.model_loading/model_loading.cpp.obj
+
+src/3.model_loading/1.model_loading/model_loading.i: src/3.model_loading/1.model_loading/model_loading.cpp.i
+
+.PHONY : src/3.model_loading/1.model_loading/model_loading.i
+
+# target to preprocess a source file
+src/3.model_loading/1.model_loading/model_loading.cpp.i:
+	$(MAKE) -f CMakeFiles\3.model_loading__1.model_loading.dir\build.make CMakeFiles/3.model_loading__1.model_loading.dir/src/3.model_loading/1.model_loading/model_loading.cpp.i
+.PHONY : src/3.model_loading/1.model_loading/model_loading.cpp.i
+
+src/3.model_loading/1.model_loading/model_loading.s: src/3.model_loading/1.model_loading/model_loading.cpp.s
+
+.PHONY : src/3.model_loading/1.model_loading/model_loading.s
+
+# target to generate assembly for a file
+src/3.model_loading/1.model_loading/model_loading.cpp.s:
+	$(MAKE) -f CMakeFiles\3.model_loading__1.model_loading.dir\build.make CMakeFiles/3.model_loading__1.model_loading.dir/src/3.model_loading/1.model_loading/model_loading.cpp.s
+.PHONY : src/3.model_loading/1.model_loading/model_loading.cpp.s
+
+src/4.advanced_opengl/2.stencil_testing/stencil_testing.obj: src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.obj
+
+.PHONY : src/4.advanced_opengl/2.stencil_testing/stencil_testing.obj
+
+# target to build an object file
+src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.obj:
+	$(MAKE) -f CMakeFiles\4.advanced_opengl__2.stencil_testing.dir\build.make CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.obj
+.PHONY : src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.obj
+
+src/4.advanced_opengl/2.stencil_testing/stencil_testing.i: src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.i
+
+.PHONY : src/4.advanced_opengl/2.stencil_testing/stencil_testing.i
+
+# target to preprocess a source file
+src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.i:
+	$(MAKE) -f CMakeFiles\4.advanced_opengl__2.stencil_testing.dir\build.make CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.i
+.PHONY : src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.i
+
+src/4.advanced_opengl/2.stencil_testing/stencil_testing.s: src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.s
+
+.PHONY : src/4.advanced_opengl/2.stencil_testing/stencil_testing.s
+
+# target to generate assembly for a file
+src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.s:
+	$(MAKE) -f CMakeFiles\4.advanced_opengl__2.stencil_testing.dir\build.make CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.s
+.PHONY : src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp.s
+
 src/glad.obj: src/glad.c.obj
 
 .PHONY : src/glad.obj
@@ -315,12 +395,14 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... 1.getting_started__4.2.textures_combined
 	@echo ... STB_IMAGE
+	@echo ... 1.getting_started__4.2.textures_combined
 	@echo ... GLAD
+	@echo ... 3.model_loading__1.model_loading
 	@echo ... 1.getting_started__3.3.shaders_class
 	@echo ... rebuild_cache
 	@echo ... 1.getting_started__7.3.camera_mouse_zoom
+	@echo ... 4.advanced_opengl__2.stencil_testing
 	@echo ... edit_cache
 	@echo ... src/1.getting_started/3.3.shaders_class/shaders_class.obj
 	@echo ... src/1.getting_started/3.3.shaders_class/shaders_class.i
@@ -331,6 +413,12 @@ help:
 	@echo ... src/1.getting_started/7.3.camera_mouse_zoom/camera_mouse_zoom.obj
 	@echo ... src/1.getting_started/7.3.camera_mouse_zoom/camera_mouse_zoom.i
 	@echo ... src/1.getting_started/7.3.camera_mouse_zoom/camera_mouse_zoom.s
+	@echo ... src/3.model_loading/1.model_loading/model_loading.obj
+	@echo ... src/3.model_loading/1.model_loading/model_loading.i
+	@echo ... src/3.model_loading/1.model_loading/model_loading.s
+	@echo ... src/4.advanced_opengl/2.stencil_testing/stencil_testing.obj
+	@echo ... src/4.advanced_opengl/2.stencil_testing/stencil_testing.i
+	@echo ... src/4.advanced_opengl/2.stencil_testing/stencil_testing.s
 	@echo ... src/glad.obj
 	@echo ... src/glad.i
 	@echo ... src/glad.s

@@ -17,14 +17,23 @@ import static android.opengl.GLES20.glUseProgram;
 
 
 abstract class ShaderProgram {
+
     // Uniform constants
+    protected static final String U_TEXTURE_UNIT = "u_TextureUnit";
+    protected static final String U_TEXTURE_UNIT_AMBIENT = "u_TextureUnit_Ambient";
+    protected static final String U_TEXTURE_UNIT_DIFFUSE = "u_TextureUnit_Diffuse";
+    protected static final String U_TEXTURE_UNIT_SPECULAR = "u_TextureUnit_Specular";
+    protected static final String U_SHININESS = "u_Shininess";
+
+    protected static final String U_LIGHT_POSITION = "u_Light_Position";
+    protected static final String U_LIGHT_AMBIENT = "u_Light_Ambient";
+    protected static final String U_LIGHT_DIFFUSE = "u_Light_Diffuse";
+    protected static final String U_LIGHT_SPECULAR = "u_Light_Specular";
+
     protected static final String U_COLOR = "u_Color";
     protected static final String U_MATRIX = "u_Matrix";
-    protected static final String U_TEXTURE_UNIT = "u_TextureUnit";
-
     protected static final String U_MATRIX_MODEL = "u_Matrix_Model";
     protected static final String U_CAMERA = "u_Camera";
-    protected static final String U_LIGHT = "u_Light";
 
     // Attribute constants
     protected static final String A_POSITION = "a_Position";

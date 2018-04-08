@@ -2,11 +2,13 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="LearnOpenGL" targetName="GLAD" />
-      <config projectName="LearnOpenGL" targetName="1.getting_started__4.2.textures_combined" />
-      <config projectName="LearnOpenGL" targetName="STB_IMAGE" />
       <config projectName="LearnOpenGL" targetName="1.getting_started__3.3.shaders_class" />
+      <config projectName="LearnOpenGL" targetName="GLAD" />
+      <config projectName="LearnOpenGL" targetName="4.advanced_opengl__2.stencil_testing" />
       <config projectName="LearnOpenGL" targetName="1.getting_started__7.3.camera_mouse_zoom" />
+      <config projectName="LearnOpenGL" targetName="1.getting_started__4.2.textures_combined" />
+      <config projectName="LearnOpenGL" targetName="3.model_loading__1.model_loading" />
+      <config projectName="LearnOpenGL" targetName="STB_IMAGE" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -29,15 +31,33 @@
     <favorites_list name="StudyOpenGL" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="camera_mouse_zoom.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/1.getting_started/7.3.camera_mouse_zoom/camera_mouse_zoom.cpp">
+    <leaf>
+      <file leaf-file-name="model_loading.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/model_loading.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="139" column="42" lean-forward="true" selection-start-line="139" selection-start-column="42" selection-end-line="139" selection-end-column="42" />
-              <folding>
-                <element signature="e#1435#1542#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="279">
+              <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="model.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/includes/learnopengl/model.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="176" column="13" lean-forward="true" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mesh.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/learnopengl/mesh.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,22 +66,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sample</find>
-      <find>GLFW3_LIBRARY</find>
-      <find>Program Files</find>
-      <find>glfw3</find>
-      <find>ROOT_LIB_DIR</find>
-      <find>glad_glViewport</find>
-      <find>processInput</find>
-      <find>SOURCE_FILES</find>
-      <find>getting_started</find>
-      <find>include_directories</find>
       <find>SOURCE</find>
       <find>SHADERS</find>
       <find>CMAKE_RUNTIME_OUTPUT_DIRECTORY</find>
       <find>${CMAKE_SOURCE_DIR}/bin</find>
       <find>SHADER</find>
       <find>ou</find>
+      <find>setMat4</find>
+      <find>png</find>
+      <find>DEMO</find>
+      <find>loadModel</find>
+      <find>TextureFromFile</find>
+      <find>directory</find>
+      <find>ID</find>
+      <find>Tangent</find>
+      <find>PFNGLVERTEXATTRIBPOINTERPROC</find>
+      <find>scene</find>
+      <find>Dr</find>
+      <find>setupMesh</find>
+      <find>assimp</find>
+      <find>bin</find>
+      <find>APPEND</find>
+      <find>LIBS</find>
+      <find>Install</find>
+      <find>glfw3</find>
+      <find>gammaCorrection</find>
+      <find>ourModel</find>
+      <find>Texture</find>
+      <find>indices</find>
+      <find>loadMaterialTextures</find>
+      <find>VAO</find>
     </findStrings>
     <dirStrings>
       <dir>D:\StudyOpenGL\c\Pratice01\cmake-build-debug\CMakeFiles</dir>
@@ -82,8 +116,14 @@
         <option value="$PROJECT_DIR$/src/1.getting_started/4.2.textures_combined/4.2.texture_vs.glsl" />
         <option value="$PROJECT_DIR$/src/1.getting_started/4.2.textures_combined/4.2.texture_fs.glsl" />
         <option value="$PROJECT_DIR$/src/1.getting_started/4.2.textures_combined/textures_combined.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="D:/DevTool/wechat_jump_game-master/config/1920x1080/config.json" />
         <option value="$PROJECT_DIR$/src/1.getting_started/7.3.camera_mouse_zoom/camera_mouse_zoom.cpp" />
+        <option value="$PROJECT_DIR$/src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp" />
+        <option value="$PROJECT_DIR$/src/3.model_loading/1.model_loading/model_loading.cpp" />
+        <option value="$PROJECT_DIR$/../../temp/LearnOpenGL-master/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="D:/DevLib/assimp-3.3.1/code/StringComparison.h" />
+        <option value="$PROJECT_DIR$/includes/learnopengl/model.h" />
       </list>
     </option>
   </component>
@@ -94,11 +134,11 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="375" />
-    <option name="y" value="72" />
-    <option name="width" value="1737" />
-    <option name="height" value="982" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="240" />
+    <option name="y" value="133" />
+    <option name="width" value="1681" />
+    <option name="height" value="1001" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -124,7 +164,34 @@
             </path>
             <path>
               <item name="LearnOpenGL" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="StudyOpenGL" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnOpenGL" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="StudyOpenGL" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="3.model_loading" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnOpenGL" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="StudyOpenGL" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="3.model_loading" type="462c0819:PsiDirectoryNode" />
+              <item name="1.model_loading" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnOpenGL" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="StudyOpenGL" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="4.advanced_opengl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LearnOpenGL" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="StudyOpenGL" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="4.advanced_opengl" type="462c0819:PsiDirectoryNode" />
+              <item name="2.stencil_testing" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -139,18 +206,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\StudyOpenGL\c\StudyOpenGL\bin\1.getting_started" />
-      <recent name="D:\StudyOpenGL\c\StudyOpenGL\src\1.getting_started\7.3.camera_mouse_zoom" />
-      <recent name="D:\StudyOpenGL\c\StudyOpenGL\src\1.getting_started\4.2.textures_combined" />
-      <recent name="D:\StudyOpenGL\c\StudyOpenGL\src" />
+      <recent name="D:\StudyOpenGL\c\StudyOpenGL\lib" />
+      <recent name="D:\StudyOpenGL\c\StudyOpenGL\bin\3.model_loading" />
+      <recent name="D:\StudyOpenGL\c\StudyOpenGL\includes\assimp" />
       <recent name="D:\StudyOpenGL\c\StudyOpenGL\includes" />
+      <recent name="D:\StudyOpenGL\c\StudyOpenGL" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\StudyOpenGL\c\StudyOpenGL\bin\3.model_loading" />
+      <recent name="D:\StudyOpenGL\c\StudyOpenGL\lib" />
       <recent name="D:\StudyOpenGL\c\StudyOpenGL\src\1.getting_started" />
       <recent name="D:\StudyOpenGL\c\StudyOpenGL\src" />
       <recent name="D:\StudyOpenGL\c\StudyOpenGL\includes\learnopengl" />
-      <recent name="D:\StudyOpenGL\c\StudyOpenGL\getting_started\3.3.shader_class" />
-      <recent name="D:\StudyOpenGL\c\StudyOpenGL\getting_started" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -165,7 +232,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.1.getting_started__7.3.camera_mouse_zoom">
+  <component name="RunManager" selected="Application.3.model_loading__1.model_loading">
     <configuration name="1.getting_started__3.3.shaders_class" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LearnOpenGL" TARGET_NAME="1.getting_started__3.3.shaders_class" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LearnOpenGL" RUN_TARGET_NAME="1.getting_started__3.3.shaders_class">
       <envs />
     </configuration>
@@ -173,6 +240,12 @@
       <envs />
     </configuration>
     <configuration name="1.getting_started__7.3.camera_mouse_zoom" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LearnOpenGL" TARGET_NAME="1.getting_started__7.3.camera_mouse_zoom" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LearnOpenGL" RUN_TARGET_NAME="1.getting_started__7.3.camera_mouse_zoom">
+      <envs />
+    </configuration>
+    <configuration name="3.model_loading__1.model_loading" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LearnOpenGL" TARGET_NAME="3.model_loading__1.model_loading" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LearnOpenGL" RUN_TARGET_NAME="3.model_loading__1.model_loading">
+      <envs />
+    </configuration>
+    <configuration name="4.advanced_opengl__2.stencil_testing" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LearnOpenGL" TARGET_NAME="4.advanced_opengl__2.stencil_testing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LearnOpenGL" RUN_TARGET_NAME="4.advanced_opengl__2.stencil_testing">
       <envs />
     </configuration>
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LearnOpenGL" TARGET_NAME="1.getting_started__3.3.shaders_class" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LearnOpenGL" RUN_TARGET_NAME="1.getting_started__3.3.shaders_class">
@@ -184,13 +257,15 @@
     <configuration name="STB_IMAGE" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LearnOpenGL" TARGET_NAME="STB_IMAGE" CONFIG_NAME="Debug">
       <envs />
     </configuration>
-    <list size="6">
+    <list size="8">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
       <item index="1" class="java.lang.String" itemvalue="Application.1.getting_started__3.3.shaders_class" />
       <item index="2" class="java.lang.String" itemvalue="Application.1.getting_started__4.2.textures_combined" />
       <item index="3" class="java.lang.String" itemvalue="Application.1.getting_started__7.3.camera_mouse_zoom" />
-      <item index="4" class="java.lang.String" itemvalue="Application.GLAD" />
-      <item index="5" class="java.lang.String" itemvalue="Application.STB_IMAGE" />
+      <item index="4" class="java.lang.String" itemvalue="Application.3.model_loading__1.model_loading" />
+      <item index="5" class="java.lang.String" itemvalue="Application.4.advanced_opengl__2.stencil_testing" />
+      <item index="6" class="java.lang.String" itemvalue="Application.GLAD" />
+      <item index="7" class="java.lang.String" itemvalue="Application.STB_IMAGE" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -216,11 +291,21 @@
       <workItem from="1514822606661" duration="281000" />
       <workItem from="1514822965837" duration="1592000" />
       <workItem from="1514897943239" duration="3116000" />
+      <workItem from="1516372777047" duration="22096000" />
+      <workItem from="1516541680762" duration="3559000" />
+      <workItem from="1516634449014" duration="323000" />
+      <workItem from="1517844445916" duration="538000" />
+      <workItem from="1519827164259" duration="3519000" />
+      <workItem from="1519834269038" duration="1191000" />
+      <workItem from="1522335217583" duration="1350000" />
+      <workItem from="1522933104444" duration="1266000" />
+      <workItem from="1523023127455" duration="5776000" />
+      <workItem from="1523188676641" duration="5275000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52047000" />
+    <option name="totallyTimeSpent" value="97132000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -232,27 +317,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="375" y="72" width="1737" height="982" extended-state="0" />
+    <frame x="240" y="133" width="1681" height="1001" extended-state="1" />
     <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14682294" sideWeight="0.49565217" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32742316" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36847827" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3723404" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.73464656" sideWeight="0.5035928" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20094563" sideWeight="0.497358" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4929078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19916518" sideWeight="0.49565217" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4187359" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16069365" sideWeight="0.497358" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24950495" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4929078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22867803" sideWeight="0.5043478" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44495943" sideWeight="0.49640718" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06380441" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28004807" sideWeight="0.49640718" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10857496" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35171568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4187359" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -269,254 +354,260 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/includes/learnopengl/shader_s.h</url>
-          <line>37</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/includes/learnopengl/model.h</url>
+          <line>194</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/includes/learnopengl/shader_s.h</url>
-          <line>61</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/includes/learnopengl/shader_s.h</url>
-          <line>38</line>
-          <option name="timeStamp" value="16" />
+          <url>file://$PROJECT_DIR$/includes/learnopengl/model.h</url>
+          <line>198</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="17" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/1.getting_started/3.3.shaders_class/shaders_class.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="46" column="37" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/glad.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44925">
-          <caret line="1797" column="12" lean-forward="true" selection-start-line="1797" selection-start-column="12" selection-end-line="1797" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/DevLib/dev/include/glad/glad.h" />
-    <entry file="file://D:/DevLib/dev/include/GLFW/glfw3.h" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Partice01.dir/linklibs.rsp" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile" />
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/1.getting_started/3.3.shaders_class/shaders_class.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Partice01.dir/linklibs.rsp" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile" />
-    <entry file="file://$APPLICATION_HOME_DIR$/bin/cmake/share/cmake-3.8/Modules/FindPackageHandleStandardArgs.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1971">
-          <caret line="376" column="0" lean-forward="false" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/DevLib/GLFW/include/GLFW/glfw3.h" />
-    <entry file="file://$USER_HOME$/Desktop/CMakeLists.txt" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Partice01.dir/linklibs.rsp" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
-    <entry file="file://D:/DevLib/dev/include/GLFW/glfw3.h" />
-    <entry file="file://D:/DevLib/dev/include/glad/glad.h" />
-    <entry file="file://$PROJECT_DIR$/../dev/include/GLFW/glfw3.h" />
-    <entry file="file://$PROJECT_DIR$/src/glad.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="1814" column="14" lean-forward="false" selection-start-line="1814" selection-start-column="14" selection-end-line="1814" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream.tcc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="119" column="12" lean-forward="false" selection-start-line="119" selection-start-column="12" selection-end-line="119" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../dev/include/glad/glad.h" />
-    <entry file="file://$PROJECT_DIR$/includes/glm/gtc/ulp.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/glm/glm.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/1.getting_started/3.3.shaders_class/shaders_class.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/GLFW/glfw3.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3146">
-          <caret line="133" column="4" lean-forward="false" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ios_base.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="254" column="33" lean-forward="false" selection-start-line="254" selection-start-column="33" selection-end-line="254" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/1.getting_started/3.3.shaders_class/3.3.shader_fs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/1.getting_started/3.3.shaders_class/3.3.shader_vs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/fstream">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="596" column="53" lean-forward="false" selection-start-line="596" selection-start-column="53" selection-end-line="596" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/1.getting_started/3.3.shaders_class/shaders_class.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="46" column="65" lean-forward="true" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/1.getting_started/3.3.shader_fs.glsl" />
-    <entry file="file://$PROJECT_DIR$/includes/glad/glad.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="3352" column="24" lean-forward="false" selection-start-line="3352" selection-start-column="8" selection-end-line="3352" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../temp/LearnOpenGL-master/src/stb_image.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/image_DXT.c">
+    <entry file="file://$PROJECT_DIR$/src/4.advanced_opengl/2.stencil_testing/2.stencil_single_color_fs.glsl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/stb_image.cpp">
+    <entry file="file://$PROJECT_DIR$/src/1.getting_started/3.3.shaders_class/shaders_class.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="206">
+          <caret line="37" column="21" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/1.getting_started/4.2.textures_combined/4.2.texture_vs.glsl">
+    <entry file="file://$PROJECT_DIR$/includes/learnopengl/shader_s.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/1.getting_started/4.2.textures_combined/4.2.texture_fs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="-825">
+          <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/1.getting_started/4.2.textures_combined/textures_combined.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#22#0" expanded="false" />
-            <element signature="e#625#732#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-3504">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/1.getting_started/7.3.camera_mouse_zoom/7.3.camera_fs.glsl">
+    <entry file="file://$PROJECT_DIR$/includes/learnopengl/filesystem.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        <state relative-caret-position="300">
+          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeFiles/1.getting_started__3.3.shaders_class.dir/build.make">
+    <entry file="file://$PROJECT_DIR$/src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="97" column="273" lean-forward="true" selection-start-line="97" selection-start-column="273" selection-end-line="97" selection-end-column="273" />
+        <state relative-caret-position="4310">
+          <caret line="202" column="14" lean-forward="false" selection-start-line="202" selection-start-column="8" selection-end-line="202" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/1.getting_started">
+    <entry file="file://$PROJECT_DIR$/../../assimp-master/CMakeLists.txt" />
+    <entry file="file://$PROJECT_DIR$/includes/learnopengl/shader.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/3.model_loading/nanosuit.obj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../assimp-master/port/AndroidJNI/AndroidJNIIOSystem.cpp" />
+    <entry file="file://$PROJECT_DIR$/includes/assimp/Importer.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="644" column="0" lean-forward="false" selection-start-line="644" selection-start-column="0" selection-end-line="644" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../temp/LearnOpenGL-master/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="172" column="27" lean-forward="false" selection-start-line="172" selection-start-column="27" selection-end-line="172" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/root_directory.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration/root_directory.h.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/MinGW/include/winuser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-109699">
+          <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../temp/mp_ayden/mp_ayden.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/DevLib/assimp-3.3.1/include/assimp/types.h" />
+    <entry file="file://D:/DevLib/assimp-3.3.1/code/StringComparison.h" />
+    <entry file="file://D:/DevLib/assimp-4.1.0/build/include/assimp/config.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23350">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/DevLib/assimp-4.1.0/include/assimp/port/AndroidJNI/AndroidJNIIOSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-275">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/assimp/config.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/assimp/defs.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/assimp/types.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/assimp/port/AndroidJNI/AndroidJNIIOSystem.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="2240" column="11" lean-forward="false" selection-start-line="2240" selection-start-column="6" selection-end-line="2240" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/3.model_loading/1.model_loading_vs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/3.model_loading/1.model_loading_fs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="207" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
-          <folding />
+          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeFiles/1.getting_started__4.2.textures_combined.dir/build.make">
+    <entry file="file://$PROJECT_DIR$/includes/learnopengl/shader_m.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="2350">
+          <caret line="94" column="43" lean-forward="false" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/bin/3.model_loading/nanosuit.mtl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/glad/glad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77550">
+          <caret line="3102" column="6" lean-forward="false" selection-start-line="3102" selection-start-column="6" selection-end-line="3102" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/glm/gtc/matrix_transform.inl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="247" column="44" lean-forward="false" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/assimp/postprocess.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="79" column="37" lean-forward="true" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_vector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="1095" column="8" lean-forward="false" selection-start-line="1095" selection-start-column="8" selection-end-line="1095" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/assimp/material.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="745" column="13" lean-forward="false" selection-start-line="745" selection-start-column="13" selection-end-line="745" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/1.model_loading_vs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/1.model_loading_fs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/assimp/anim.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/stb_image_aug.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4350">
+          <caret line="174" column="15" lean-forward="false" selection-start-line="174" selection-start-column="15" selection-end-line="174" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -524,25 +615,96 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/learnopengl/shader_s.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/1.getting_started/7.3.camera_mouse_zoom/camera_mouse_zoom.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="139" column="42" lean-forward="true" selection-start-line="139" selection-start-column="42" selection-end-line="139" selection-end-column="42" />
+        <state relative-caret-position="225">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#1435#1542#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeFiles/Makefile2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeFiles/3.model_loading__1.model_loading.dir/build.make">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/DevLib/assimp-4.1.0/build/revision.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/DevLib/assimp-4.1.0/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-975">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/DevLib/assimp-4.1.0/build/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="112" selection-start-column="30" selection-end-line="112" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/learnopengl/camera.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/learnopengl/mesh.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/model_loading.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/learnopengl/model.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="176" column="13" lean-forward="true" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

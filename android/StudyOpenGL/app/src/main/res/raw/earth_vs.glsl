@@ -1,7 +1,7 @@
 uniform mat4 u_Matrix; //总矩阵
 uniform mat4 u_Matrix_Model; //模型矩阵
 uniform vec3 u_Camera;
-uniform vec3 u_Light;//光位置
+uniform vec3 u_Light_Position;//光位置
 
 
 attribute vec3 a_Position;
@@ -52,7 +52,7 @@ void main()
     vec4 specularT=vec4(0,0,0,0);
 
     light(ambientT,diffuseT,specularT,
-          u_Light,
+          u_Light_Position,
           vec4(0.05f,0.05f,0.05f,1),
           vec4(1,1,1,1),
           vec4(0.3f,0.3f,0.3f,1));

@@ -59,6 +59,43 @@ CMAKE_SOURCE_DIR = D:\StudyOpenGL\c\StudyOpenGL
 CMAKE_BINARY_DIR = D:\StudyOpenGL\c\StudyOpenGL
 
 #=============================================================================
+# Target rules for target CMakeFiles/STB_IMAGE.dir
+
+# All Build rule for target.
+CMakeFiles/STB_IMAGE.dir/all:
+	$(MAKE) -f CMakeFiles\STB_IMAGE.dir\build.make CMakeFiles/STB_IMAGE.dir/depend
+	$(MAKE) -f CMakeFiles\STB_IMAGE.dir\build.make CMakeFiles/STB_IMAGE.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles --progress-num=13,14 "Built target STB_IMAGE"
+.PHONY : CMakeFiles/STB_IMAGE.dir/all
+
+# Include target in all.
+all: CMakeFiles/STB_IMAGE.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/STB_IMAGE.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/STB_IMAGE.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles 0
+.PHONY : CMakeFiles/STB_IMAGE.dir/rule
+
+# Convenience name for target.
+STB_IMAGE: CMakeFiles/STB_IMAGE.dir/rule
+
+.PHONY : STB_IMAGE
+
+# clean rule for target.
+CMakeFiles/STB_IMAGE.dir/clean:
+	$(MAKE) -f CMakeFiles\STB_IMAGE.dir\build.make CMakeFiles/STB_IMAGE.dir/clean
+.PHONY : CMakeFiles/STB_IMAGE.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/STB_IMAGE.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/1.getting_started__4.2.textures_combined.dir
 
 # All Build rule for target.
@@ -97,50 +134,13 @@ clean: CMakeFiles/1.getting_started__4.2.textures_combined.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/STB_IMAGE.dir
-
-# All Build rule for target.
-CMakeFiles/STB_IMAGE.dir/all:
-	$(MAKE) -f CMakeFiles\STB_IMAGE.dir\build.make CMakeFiles/STB_IMAGE.dir/depend
-	$(MAKE) -f CMakeFiles\STB_IMAGE.dir\build.make CMakeFiles/STB_IMAGE.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles --progress-num=9,10 "Built target STB_IMAGE"
-.PHONY : CMakeFiles/STB_IMAGE.dir/all
-
-# Include target in all.
-all: CMakeFiles/STB_IMAGE.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/STB_IMAGE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles 2
-	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/STB_IMAGE.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles 0
-.PHONY : CMakeFiles/STB_IMAGE.dir/rule
-
-# Convenience name for target.
-STB_IMAGE: CMakeFiles/STB_IMAGE.dir/rule
-
-.PHONY : STB_IMAGE
-
-# clean rule for target.
-CMakeFiles/STB_IMAGE.dir/clean:
-	$(MAKE) -f CMakeFiles\STB_IMAGE.dir\build.make CMakeFiles/STB_IMAGE.dir/clean
-.PHONY : CMakeFiles/STB_IMAGE.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/STB_IMAGE.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/GLAD.dir
 
 # All Build rule for target.
 CMakeFiles/GLAD.dir/all:
 	$(MAKE) -f CMakeFiles\GLAD.dir\build.make CMakeFiles/GLAD.dir/depend
 	$(MAKE) -f CMakeFiles\GLAD.dir\build.make CMakeFiles/GLAD.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles --progress-num=7,8 "Built target GLAD"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles --progress-num=11,12 "Built target GLAD"
 .PHONY : CMakeFiles/GLAD.dir/all
 
 # Include target in all.
@@ -167,6 +167,44 @@ CMakeFiles/GLAD.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/GLAD.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/3.model_loading__1.model_loading.dir
+
+# All Build rule for target.
+CMakeFiles/3.model_loading__1.model_loading.dir/all: CMakeFiles/GLAD.dir/all
+CMakeFiles/3.model_loading__1.model_loading.dir/all: CMakeFiles/STB_IMAGE.dir/all
+	$(MAKE) -f CMakeFiles\3.model_loading__1.model_loading.dir\build.make CMakeFiles/3.model_loading__1.model_loading.dir/depend
+	$(MAKE) -f CMakeFiles\3.model_loading__1.model_loading.dir\build.make CMakeFiles/3.model_loading__1.model_loading.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles --progress-num=7,8 "Built target 3.model_loading__1.model_loading"
+.PHONY : CMakeFiles/3.model_loading__1.model_loading.dir/all
+
+# Include target in all.
+all: CMakeFiles/3.model_loading__1.model_loading.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/3.model_loading__1.model_loading.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles 6
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/3.model_loading__1.model_loading.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles 0
+.PHONY : CMakeFiles/3.model_loading__1.model_loading.dir/rule
+
+# Convenience name for target.
+3.model_loading__1.model_loading: CMakeFiles/3.model_loading__1.model_loading.dir/rule
+
+.PHONY : 3.model_loading__1.model_loading
+
+# clean rule for target.
+CMakeFiles/3.model_loading__1.model_loading.dir/clean:
+	$(MAKE) -f CMakeFiles\3.model_loading__1.model_loading.dir\build.make CMakeFiles/3.model_loading__1.model_loading.dir/clean
+.PHONY : CMakeFiles/3.model_loading__1.model_loading.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/3.model_loading__1.model_loading.dir/clean
 
 .PHONY : clean
 
@@ -243,6 +281,44 @@ CMakeFiles/1.getting_started__7.3.camera_mouse_zoom.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/1.getting_started__7.3.camera_mouse_zoom.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/4.advanced_opengl__2.stencil_testing.dir
+
+# All Build rule for target.
+CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/all: CMakeFiles/GLAD.dir/all
+CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/all: CMakeFiles/STB_IMAGE.dir/all
+	$(MAKE) -f CMakeFiles\4.advanced_opengl__2.stencil_testing.dir\build.make CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/depend
+	$(MAKE) -f CMakeFiles\4.advanced_opengl__2.stencil_testing.dir\build.make CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles --progress-num=9,10 "Built target 4.advanced_opengl__2.stencil_testing"
+.PHONY : CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/all
+
+# Include target in all.
+all: CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles 6
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\StudyOpenGL\c\StudyOpenGL\CMakeFiles 0
+.PHONY : CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/rule
+
+# Convenience name for target.
+4.advanced_opengl__2.stencil_testing: CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/rule
+
+.PHONY : 4.advanced_opengl__2.stencil_testing
+
+# clean rule for target.
+CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/clean:
+	$(MAKE) -f CMakeFiles\4.advanced_opengl__2.stencil_testing.dir\build.make CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/clean
+.PHONY : CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/4.advanced_opengl__2.stencil_testing.dir/clean
 
 .PHONY : clean
 

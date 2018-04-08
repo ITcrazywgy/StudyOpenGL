@@ -22,7 +22,6 @@ import static android.opengl.GLES20.glGetUniformLocation;
 import static android.opengl.GLES20.glUniform1i;
 import static android.opengl.GLES20.glUniform3fv;
 import static android.opengl.GLES20.glUniformMatrix4fv;
-import static android.opengl.GLES20.glViewport;
 
 
 public class EarthProgram extends ShaderProgram {
@@ -33,7 +32,7 @@ public class EarthProgram extends ShaderProgram {
     private final int uMatrixLocation;
     private final int uTextureDayUnitLocation;
     private final int uTextureNightUnitLocation;
-    private final int uLightLocation;
+    private final int uLightPositionLocation;
     private final int uCameraLocation;
     private final int uModelMatrixLocation;
 
@@ -49,7 +48,7 @@ public class EarthProgram extends ShaderProgram {
         uMatrixLocation = glGetUniformLocation(program, U_MATRIX);
         uTextureDayUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT_DAY);
         uTextureNightUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT_NIGHT);
-        uLightLocation = glGetUniformLocation(program, U_LIGHT);
+        uLightPositionLocation = glGetUniformLocation(program, U_LIGHT_POSITION);
         uCameraLocation = glGetUniformLocation(program, U_CAMERA);
         uModelMatrixLocation = glGetUniformLocation(program, U_MATRIX_MODEL);
 
@@ -63,7 +62,7 @@ public class EarthProgram extends ShaderProgram {
         glUniformMatrix4fv(uModelMatrixLocation, 1, false, mMatrix, 0);
 
         glUniform3fv(uCameraLocation,1,camera,0);
-        glUniform3fv(uLightLocation,1,light,0);
+        glUniform3fv(uLightPositionLocation,1,light,0);
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, textureDay);

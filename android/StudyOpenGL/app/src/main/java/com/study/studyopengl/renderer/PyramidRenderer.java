@@ -64,6 +64,7 @@ public class PyramidRenderer extends BaseRenderer {
         program.setUniforms(getMvpMatrix(), texture);
         pyramid.bindData(program);
         pyramid.draw();
+
     }
 
 }

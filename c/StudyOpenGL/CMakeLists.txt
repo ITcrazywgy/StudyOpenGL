@@ -15,14 +15,14 @@ endif(WIN32)
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 
 list(APPEND CMAKE_CXX_FLAGS "-std=c++11")
-#assimp
-set(LIBS glfw3 opengl32 )
+
+set(LIBS glfw3 opengl32 assimp)
 
 set(CHAPTERS
         1.getting_started
         #2.lighting
-        #3.model_loading
-        #4.advanced_opengl
+        3.model_loading
+        4.advanced_opengl
         #5.advanced_lighting
         #6.pbr
         #7.in_practice
@@ -76,23 +76,23 @@ set(3.model_loading
         )
 
 set(4.advanced_opengl
-        1.1.depth_testing
-        1.2.depth_testing_view
+        #1.1.depth_testing
+        #1.2.depth_testing_view
         2.stencil_testing
-        3.1.blending_discard
-        3.2.blending_sort
-        5.1.framebuffers
-        5.2.framebuffers_exercise1
-        6.1.cubemaps_skybox
-        6.2.cubemaps_environment_mapping
-        8.advanced_glsl_ubo
-        9.1.geometry_shader_houses
-        9.2.geometry_shader_exploding
-        9.3.geometry_shader_normals
-        10.1.instancing_quads
-        10.2.asteroids
-        10.3.asteroids_instanced
-        11.anti_aliasing_offscreen
+        #3.1.blending_discard
+        #3.2.blending_sort
+        #5.1.framebuffers
+        #5.2.framebuffers_exercise1
+        #6.1.cubemaps_skybox
+        #6.2.cubemaps_environment_mapping
+        #8.advanced_glsl_ubo
+        #9.1.geometry_shader_houses
+        #9.2.geometry_shader_exploding
+        #9.3.geometry_shader_normals
+        #10.1.instancing_quads
+        #10.2.asteroids
+        #10.3.asteroids_instanced
+        #11.anti_aliasing_offscreen
         )
 
 set(5.advanced_lighting
@@ -151,6 +151,8 @@ foreach(CHAPTER ${CHAPTERS})
                 "src/${CHAPTER}/${DEMO}/*.glsl"
                 "src/${CHAPTER}/${DEMO}/*.png"
                 "src/${CHAPTER}/${DEMO}/*.jpg"
+                "src/${CHAPTER}/${DEMO}/*.obj"
+                "src/${CHAPTER}/${DEMO}/*.mtl"
                 )
         foreach(RESOURCE ${RESOURCES})
             add_custom_command(TARGET ${NAME} PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${RESOURCE} $<TARGET_FILE_DIR:${NAME}>)

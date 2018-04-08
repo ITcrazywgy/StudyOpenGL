@@ -1,0 +1,23 @@
+@startuml
+
+class Vertex {
+    // position
+    Vec3 position;
+    // normal
+    Vec3 normal;
+    // texCoords
+    Vec2 texCoords;
+};
+
+class Mesh{
+     List<Vertex> vertices;
+     List<Int> indices;
+     List<Vec2> textures;
+}
+
+class Model{
+    List<Mesh> meshes;
+    String directory;
+}
+
+@enduml

@@ -5,8 +5,7 @@ import android.util.Log;
 
 import com.study.studyopengl.objects.Cylinder;
 import com.study.studyopengl.programs.CylinderProgram;
-import com.study.studyopengl.util.Geometry;
-import com.study.studyopengl.util.Geometry.Point;
+import com.study.studyopengl.geometry.Position;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -34,7 +33,7 @@ public class CylinderRenderer extends BaseRenderer {
         Log.d(TAG, "onSurfaceCreated:" + Thread.currentThread().getName());
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-        cylinder = new Cylinder(new Point(0f, 0f, 0f), 0.5f, 4f, 360);
+        cylinder = new Cylinder(new Position(0f, 0f, 0f), 0.5f, 4f, 360);
         colorProgram = new CylinderProgram(context);
         glEnable(GL_DEPTH_TEST);
     }

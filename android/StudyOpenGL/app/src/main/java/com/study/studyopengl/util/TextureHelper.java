@@ -13,6 +13,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import static android.opengl.GLES20.GL_CLAMP_TO_EDGE;
 import static android.opengl.GLES20.GL_LINEAR;
 import static android.opengl.GLES20.GL_LINEAR_MIPMAP_LINEAR;
@@ -31,16 +34,49 @@ import static android.opengl.GLUtils.texImage2D;
 public class TextureHelper {
     private static final String TAG = "TextureHelper";
 
-    /**
-     * Loads a texture from a resource ID, returning the OpenGL ID for that
-     * texture. Returns 0 if the load failed.
-     *
-     * @param context
-     * @param resourceId
-     * @return
-     */
     public static int loadTexture(Context context, int resourceId) {
         return loadTexture(context, resourceId, null);
+    }
+
+    public static int loadTexture(Context context, String path) {
+        InputStream in = null;
+        try {
+            in = context.getResources().getAssets().open(path);
+            final int[] textureObjectIds = new int[1];
+            glGenTextures(1, textureObjectIds, 0);
+            if (textureObjectIds[0] == 0) {
+                return 0;
+            }
+            final BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inScaled = false;
+            final Bitmap bitmap = BitmapFactory.decodeStream(in, null, options);
+            if (bitmap == null) {
+                glDeleteTextures(1, textureObjectIds, 0);
+                return 0;
+            }
+            glBindTexture(GL_TEXTURE_2D, textureObjectIds[0]);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            texImage2D(GL_TEXTURE_2D, 0, bitmap, 0);
+            glGenerateMipmap(GL_TEXTURE_2D);
+            bitmap.recycle();
+            glBindTexture(GL_TEXTURE_2D, 0);
+            return textureObjectIds[0];
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public static int loadTexture(Context context, int resourceId, int[] bitmapWH) {

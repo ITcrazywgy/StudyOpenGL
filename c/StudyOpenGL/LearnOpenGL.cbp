@@ -17,52 +17,6 @@
 					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="1.getting_started__4.2.textures_combined">
-				<Option output="D:/StudyOpenGL/c/StudyOpenGL/bin/1.getting_started/1.getting_started__4.2.textures_combined.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="D:/StudyOpenGL/c/StudyOpenGL/includes"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 1.getting_started__4.2.textures_combined"/>
-					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="1.getting_started__4.2.textures_combined/fast">
-				<Option output="D:/StudyOpenGL/c/StudyOpenGL/bin/1.getting_started/1.getting_started__4.2.textures_combined.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="D:/StudyOpenGL/c/StudyOpenGL/includes"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 1.getting_started__4.2.textures_combined/fast"/>
-					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="STB_IMAGE">
 				<Option output="D:/StudyOpenGL/c/StudyOpenGL/libSTB_IMAGE.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL"/>
@@ -109,6 +63,52 @@
 					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="1.getting_started__4.2.textures_combined">
+				<Option output="D:/StudyOpenGL/c/StudyOpenGL/bin/1.getting_started/1.getting_started__4.2.textures_combined.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/StudyOpenGL/c/StudyOpenGL/includes"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 1.getting_started__4.2.textures_combined"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="1.getting_started__4.2.textures_combined/fast">
+				<Option output="D:/StudyOpenGL/c/StudyOpenGL/bin/1.getting_started/1.getting_started__4.2.textures_combined.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/StudyOpenGL/c/StudyOpenGL/includes"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 1.getting_started__4.2.textures_combined/fast"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="GLAD">
 				<Option output="D:/StudyOpenGL/c/StudyOpenGL/libGLAD.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL"/>
@@ -150,6 +150,52 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 GLAD/fast"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="3.model_loading__1.model_loading">
+				<Option output="D:/StudyOpenGL/c/StudyOpenGL/bin/3.model_loading/3.model_loading__1.model_loading.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/StudyOpenGL/c/StudyOpenGL/includes"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 3.model_loading__1.model_loading"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="3.model_loading__1.model_loading/fast">
+				<Option output="D:/StudyOpenGL/c/StudyOpenGL/bin/3.model_loading/3.model_loading__1.model_loading.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/StudyOpenGL/c/StudyOpenGL/includes"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 3.model_loading__1.model_loading/fast"/>
 					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
@@ -257,6 +303,52 @@
 					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="4.advanced_opengl__2.stencil_testing">
+				<Option output="D:/StudyOpenGL/c/StudyOpenGL/bin/4.advanced_opengl/4.advanced_opengl__2.stencil_testing.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/StudyOpenGL/c/StudyOpenGL/includes"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 4.advanced_opengl__2.stencil_testing"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="4.advanced_opengl__2.stencil_testing/fast">
+				<Option output="D:/StudyOpenGL/c/StudyOpenGL/bin/4.advanced_opengl/4.advanced_opengl__2.stencil_testing.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/StudyOpenGL/c/StudyOpenGL/includes"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+					<Add directory="d:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 4.advanced_opengl__2.stencil_testing/fast"/>
+					<CompileFile command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/bin/mingw32-make.exe -f &quot;D:/StudyOpenGL/c/StudyOpenGL/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="D:/StudyOpenGL/c/StudyOpenGL"/>
 				<Option type="4"/>
@@ -276,6 +368,12 @@
 		</Unit>
 		<Unit filename="D:/StudyOpenGL/c/StudyOpenGL/src/1.getting_started/7.3.camera_mouse_zoom/camera_mouse_zoom.cpp">
 			<Option target="1.getting_started__7.3.camera_mouse_zoom"/>
+		</Unit>
+		<Unit filename="D:/StudyOpenGL/c/StudyOpenGL/src/3.model_loading/1.model_loading/model_loading.cpp">
+			<Option target="3.model_loading__1.model_loading"/>
+		</Unit>
+		<Unit filename="D:/StudyOpenGL/c/StudyOpenGL/src/4.advanced_opengl/2.stencil_testing/stencil_testing.cpp">
+			<Option target="4.advanced_opengl__2.stencil_testing"/>
 		</Unit>
 		<Unit filename="D:/StudyOpenGL/c/StudyOpenGL/src/glad.c">
 			<Option target="GLAD"/>
