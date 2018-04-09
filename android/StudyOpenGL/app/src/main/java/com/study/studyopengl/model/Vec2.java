@@ -9,6 +9,5 @@ public class Vec2 {
         this.s = s;
         this.t = t;
     }
-
     public float x, y, s, t;
 }
