@@ -2,11 +2,11 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
+      <config projectName="LearnOpenGL" targetName="1.getting_started__4.2.textures_combined" />
       <config projectName="LearnOpenGL" targetName="1.getting_started__3.3.shaders_class" />
       <config projectName="LearnOpenGL" targetName="GLAD" />
       <config projectName="LearnOpenGL" targetName="4.advanced_opengl__2.stencil_testing" />
       <config projectName="LearnOpenGL" targetName="1.getting_started__7.3.camera_mouse_zoom" />
-      <config projectName="LearnOpenGL" targetName="1.getting_started__4.2.textures_combined" />
       <config projectName="LearnOpenGL" targetName="3.model_loading__1.model_loading" />
       <config projectName="LearnOpenGL" targetName="STB_IMAGE" />
     </generated>
@@ -31,22 +31,22 @@
     <favorites_list name="StudyOpenGL" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="model_loading.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/model_loading.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+            <state relative-caret-position="2000">
+              <caret line="80" column="7" lean-forward="false" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="model.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/learnopengl/model.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="176" column="13" lean-forward="true" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
+            <state relative-caret-position="360">
+              <caret line="158" column="17" lean-forward="false" selection-start-line="158" selection-start-column="17" selection-end-line="158" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -55,8 +55,28 @@
       <file leaf-file-name="mesh.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/learnopengl/mesh.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+            <state relative-caret-position="160">
+              <caret line="72" column="47" lean-forward="true" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1.model_loading_vs.glsl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/1.model_loading_vs.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1.model_loading_fs.glsl" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/1.model_loading_fs.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -134,9 +154,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="240" />
-    <option name="y" value="133" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="39" />
+    <option name="y" value="51" />
     <option name="width" value="1681" />
     <option name="height" value="1001" />
   </component>
@@ -171,14 +191,13 @@
               <item name="LearnOpenGL" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="StudyOpenGL" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="3.model_loading" type="462c0819:PsiDirectoryNode" />
+              <item name="1.getting_started" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LearnOpenGL" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="StudyOpenGL" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="3.model_loading" type="462c0819:PsiDirectoryNode" />
-              <item name="1.model_loading" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LearnOpenGL" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
@@ -301,11 +320,12 @@
       <workItem from="1522933104444" duration="1266000" />
       <workItem from="1523023127455" duration="5776000" />
       <workItem from="1523188676641" duration="5275000" />
+      <workItem from="1523373268839" duration="783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97132000" />
+    <option name="totallyTimeSpent" value="97915000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -317,10 +337,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="240" y="133" width="1681" height="1001" extended-state="1" />
-    <editor active="true" />
+    <frame x="39" y="51" width="1681" height="1001" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14682294" sideWeight="0.49565217" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24244294" sideWeight="0.49565217" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32742316" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3723404" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.73464656" sideWeight="0.5035928" order="7" side_tool="true" content_ui="tabs" />
@@ -583,20 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/1.model_loading_vs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/1.model_loading_fs.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/assimp/anim.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -622,9 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -684,26 +686,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/learnopengl/mesh.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/model_loading.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+        <state relative-caret-position="2000">
+          <caret line="80" column="7" lean-forward="false" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/learnopengl/model.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="176" column="13" lean-forward="true" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
+        <state relative-caret-position="360">
+          <caret line="158" column="17" lean-forward="false" selection-start-line="158" selection-start-column="17" selection-end-line="158" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/learnopengl/mesh.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="72" column="47" lean-forward="true" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/1.model_loading_vs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/3.model_loading/1.model_loading/1.model_loading_fs.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

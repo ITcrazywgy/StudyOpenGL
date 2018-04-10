@@ -1,13 +1,10 @@
 package com.study.studyopengl.model;
 
 import android.content.Context;
+import android.opengl.GLES20;
 
 import com.study.studyopengl.Constants;
 import com.study.studyopengl.data.VertexArray;
-import com.study.studyopengl.objects.OBJObject;
-import com.study.studyopengl.parser.OBJFace;
-import com.study.studyopengl.parser.OBJMesh;
-import com.study.studyopengl.parser.OBJModel;
 import com.study.studyopengl.util.TextureHelper;
 
 import java.io.BufferedReader;
@@ -47,9 +44,14 @@ public class Model {
     private List<Mesh> mMeshes;
 
     public Model(Context context, String path) {
-        this.mDirectory = path.substring(0, path.lastIndexOf('/')) + "/";
+        int i = path.lastIndexOf('/');
+        this.mDirectory = i != -1 ? path.substring(0, i) + "/" : "";
         this.mMeshes = new ArrayList<>();
-        loadModel(context, path);
+        try {
+            loadModel(context, path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         prepareData();
     }
 
@@ -59,13 +61,13 @@ public class Model {
         }
     }
 
-    public void draw() {
+    public void draw(ModelProgram program) {
         for (Mesh mesh : mMeshes) {
-            mesh.draw();
+            mesh.draw(program);
         }
     }
 
-    static class Material {
+    public static class Material {
         Material(String name) {
             this.name = name;
         }
@@ -83,6 +85,15 @@ public class Model {
         void addTexture(Texture texture) {
             this.textures.add(texture);
         }
+
+        public int getTextureId(String type) {
+            for (int i = 0; i < textures.size(); i++) {
+                if (textures.get(i).type.equals(type)) {
+                    return textures.get(i).id;
+                }
+            }
+            return 0;
+        }
     }
 
     static class Mesh {
@@ -99,8 +110,11 @@ public class Model {
             this.vertices.add(vertex);
         }
 
+        private int vertexCount = 0;
+
         void prepareData() {
-            float[] vertexData = new float[vertices.size() * TOTAL_COMPONENT_COUNT];
+            vertexCount = vertices.size();
+            float[] vertexData = new float[vertexCount * TOTAL_COMPONENT_COUNT];
             int offset = 0;
             for (int i = 0; i < vertices.size(); i++) {
                 Vertex vertex = vertices.get(i);
@@ -116,30 +130,38 @@ public class Model {
                 vertexData[offset++] = vertex.normal.z;
             }
             vertexArray = new VertexArray(vertexData);
+            vertices.clear();
         }
 
-        public void draw() {
+        void bindData(ModelProgram program) {
             int dataOffset = 0;
             vertexArray.setVertexAttributePointer(
                     0,
                     program.getPositionAttributeLocation(),
-                    OBJModel.POSITION_COMPONENT_COUNT,
-                    countPerVertex * Constants.BYTES_PER_FLOAT);
-            dataOffset += OBJModel.POSITION_COMPONENT_COUNT;
+                    POSITION_COMPONENT_COUNT,
+                    TOTAL_COMPONENT_COUNT * Constants.BYTES_PER_FLOAT);
+            dataOffset += POSITION_COMPONENT_COUNT;
 
             vertexArray.setVertexAttributePointer(
                     dataOffset,
                     program.getTextureCoordinatesAttributeLocation(),
-                    OBJModel.TEXTURE_COORDINATES_COMPONENT_COUNT,
-                    countPerVertex * Constants.BYTES_PER_FLOAT);
-            dataOffset += OBJModel.TEXTURE_COORDINATES_COMPONENT_COUNT;
+                    TEXTURE_COORDINATES_COMPONENT_COUNT,
+                    TOTAL_COMPONENT_COUNT * Constants.BYTES_PER_FLOAT);
+            dataOffset += TEXTURE_COORDINATES_COMPONENT_COUNT;
 
             vertexArray.setVertexAttributePointer(
                     dataOffset,
                     program.getNormalAttributeLocation(),
-                    OBJModel.NORMAL_COMPONENT_COUNT,
-                    countPerVertex * Constants.BYTES_PER_FLOAT);
+                    NORMAL_COMPONENT_COUNT,
+                    TOTAL_COMPONENT_COUNT * Constants.BYTES_PER_FLOAT);
+            if (material != null) {
+                program.setMaterial(material);
+            }
+        }
 
+        public void draw(ModelProgram program) {
+            bindData(program);
+            GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexCount);
         }
     }
 
@@ -153,12 +175,11 @@ public class Model {
             this.texCoord = texCoord;
             this.normal = normal;
         }
-
     }
 
-    static class Texture {
-        static String TYPE_TEXTURE_DIFFUSE = "texture_diffuse";
-        static String TYPE_TEXTURE_SPECULAR = "texture_specular";
+    public static class Texture {
+        public static String TYPE_TEXTURE_DIFFUSE = "texture_diffuse";
+        public static String TYPE_TEXTURE_SPECULAR = "texture_specular";
         public int id;
         public String type;
         public String path;
@@ -187,7 +208,8 @@ public class Model {
         List<Vec3> positions = new ArrayList<>();
         List<Vec3> normals = new ArrayList<>();
         List<Vec2> texCoords = new ArrayList<>();
-        List<Material> materials = new ArrayList<>();
+        Map<String, Material> materials = new HashMap<>();
+        Map<String, Mesh> meshes = new HashMap<>();
         BufferedReader reader = null;
         try {
             InputStream in = context.getResources().getAssets().open(path);
@@ -215,7 +237,7 @@ public class Model {
                     int[] posIndexes = new int[]{Integer.parseInt(ptnIndex[0]) - 1, Integer.parseInt(ptnIndex2[0]) - 1, Integer.parseInt(ptnIndex3[0]) - 1};
                     int[] texIndexes = new int[]{Integer.parseInt(ptnIndex[1]) - 1, Integer.parseInt(ptnIndex2[1]) - 1, Integer.parseInt(ptnIndex3[1]) - 1};
                     int[] normalIndexes = null;
-                    hasNormal = ptnIndex[0].length() > 2;
+                    hasNormal = ptnIndex.length > 2;
                     if (hasNormal) {
                         normalIndexes = new int[]{Integer.parseInt(ptnIndex[2]) - 1, Integer.parseInt(ptnIndex2[2]) - 1, Integer.parseInt(ptnIndex3[2]) - 1};
                     }
@@ -250,9 +272,13 @@ public class Model {
                 } else if (COMMAND_MATERIAL_LIB.equals(splits[0])) {
                     loadMaterials(context, materials, splits[1]);
                 } else if (COMMAND_USE_MATERIAL.equals(splits[0])) {
-                    mesh = new Mesh();
-                    mesh.material = getMaterial(materials, splits[1]);
-                    mMeshes.add(mesh);
+                    mesh = meshes.get(splits[1]);
+                    if (mesh == null) {
+                        mesh = new Mesh();
+                        mesh.material = materials.get(splits[1]);
+                        meshes.put(splits[1], mesh);
+                        mMeshes.add(mesh);
+                    }
                 }
             }
             if (!hasNormal) {
@@ -289,21 +315,9 @@ public class Model {
         }
     }
 
-
-    private Material getMaterial(List<Material> materials, String name) {
-        if (materials != null && !materials.isEmpty()) {
-            for (Material m : materials) {
-                if (m.name.equals(name)) {
-                    return m;
-                }
-            }
-        }
-        return null;
-    }
-
     private Map<String, Integer> loadedTextures = new HashMap<>();
 
-    private void loadMaterials(Context context, List<Material> materials, String libraryName) {
+    private void loadMaterials(Context context, Map<String, Material> materials, String libraryName) {
         BufferedReader reader = null;
         try {
             InputStream in = context.getResources().getAssets().open(libraryName);
@@ -313,8 +327,11 @@ public class Model {
             while ((line = reader.readLine()) != null) {
                 String[] split = line.trim().split(WHITE_SPACE_PATTERN);
                 if (COMMAND_NEW_MATERIAL.equalsIgnoreCase(split[0])) {
-                    material = new Material(split[1]);
-                    materials.add(material);
+                    material = materials.get(split[1]);
+                    if (material == null) {
+                        material = new Material(split[1]);
+                        materials.put(split[1], material);
+                    }
                 } else if (COMMAND_AMBIENT_COLOR.equalsIgnoreCase(split[0])) {
                     if (material != null) {
                         material.Ka = new Vec3(
