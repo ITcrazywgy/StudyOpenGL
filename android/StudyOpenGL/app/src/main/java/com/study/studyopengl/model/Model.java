@@ -130,30 +130,30 @@ public class Model {
                 vertexData[offset++] = vertex.normal.z;
             }
             vertexArray = new VertexArray(vertexData);
-            vertices.clear();
+            //vertices.clear();
         }
 
-        void bindData(ModelProgram program) {
+        private void bindData(ModelProgram program) {
             int dataOffset = 0;
             vertexArray.setVertexAttributePointer(
                     0,
                     program.getPositionAttributeLocation(),
                     POSITION_COMPONENT_COUNT,
-                    TOTAL_COMPONENT_COUNT * Constants.BYTES_PER_FLOAT);
+                    STRIDE);
             dataOffset += POSITION_COMPONENT_COUNT;
 
             vertexArray.setVertexAttributePointer(
                     dataOffset,
                     program.getTextureCoordinatesAttributeLocation(),
                     TEXTURE_COORDINATES_COMPONENT_COUNT,
-                    TOTAL_COMPONENT_COUNT * Constants.BYTES_PER_FLOAT);
+                    STRIDE);
             dataOffset += TEXTURE_COORDINATES_COMPONENT_COUNT;
 
             vertexArray.setVertexAttributePointer(
                     dataOffset,
                     program.getNormalAttributeLocation(),
                     NORMAL_COMPONENT_COUNT,
-                    TOTAL_COMPONENT_COUNT * Constants.BYTES_PER_FLOAT);
+                    STRIDE);
             if (material != null) {
                 program.setMaterial(material);
             }
@@ -262,8 +262,9 @@ public class Model {
                             List<Vec3> normalsPreAverage = posIndexNormalsMap.get(posIndexes[i]);
                             if (normalsPreAverage == null) {
                                 normalsPreAverage = new ArrayList<>();
+                                posIndexNormalsMap.put(posIndexes[i],normalsPreAverage);
                             }
-                            normalsPreAverage.add(posIndexes[i], vertexes[i].normal);
+                            normalsPreAverage.add(vertexes[i].normal);
                         }
                     }
                     mesh.addVertex(vertex);

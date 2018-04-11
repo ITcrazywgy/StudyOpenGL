@@ -20,7 +20,7 @@ import static android.opengl.GLES20.glViewport;
 public class ModelRenderer extends BaseRenderer {
     private final Context context;
 
-    private Model objModel;
+    private Model model;
     private ModelProgram program;
 
     public ModelRenderer(Context context) {
@@ -33,12 +33,13 @@ public class ModelRenderer extends BaseRenderer {
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glEnable(GL_DEPTH_TEST);
         program = new ModelProgram(context);
-        objModel = new Model(context, "dragon.obj");
+        model = new Model(context, "dragon.obj");
     }
 
     @Override
     public void onSurfaceChanged(GL10 glUnused, int width, int height) {
         glViewport(0, 0, width, height);
+
         //视图矩阵
         setLookAtM(20, 20, 20, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
         //透视矩阵
@@ -58,9 +59,9 @@ public class ModelRenderer extends BaseRenderer {
         rotateM(angel += 1, 0f, 0f, 1f);
         scaleM(0.8f, 0.8f, 0.8f);
 
-        program.setMatrix(getMvpMatrix(), getModelMatrix());
+        program.setMatrix(getMvpMatrix(), getModelMatrix(),getNormalMatrix());
         program.setLightPosition(0, 0, 20);
-        objModel.draw(program);
+        model.draw(program);
     }
 
 }

@@ -9,13 +9,8 @@
 package com.study.studyopengl.model;
 
 import android.content.Context;
-import android.opengl.Matrix;
 
 import com.study.studyopengl.R;
-import com.study.studyopengl.model.Model;
-import com.study.studyopengl.model.Vec3;
-import com.study.studyopengl.parser.MTLMaterial;
-import com.study.studyopengl.parser.OBJModel;
 import com.study.studyopengl.programs.ShaderProgram;
 
 import static android.opengl.GLES20.GL_TEXTURE0;
@@ -36,7 +31,6 @@ public class ModelProgram extends ShaderProgram {
     private final int uMatrixLocation;
     private final int uModelMatrixLocation;
     private final int uNormalMatrixLocation;
-    private final int uAmbientTextureUnitLocation;
     private final int uDiffuseTextureUnitLocation;
     private final int uSpecularTextureUnitLocation;
     private final int uLightPositionLocation;
@@ -60,7 +54,6 @@ public class ModelProgram extends ShaderProgram {
         uModelMatrixLocation = glGetUniformLocation(program, U_MATRIX_MODEL);
         uNormalMatrixLocation = glGetUniformLocation(program, U_MATRIX_NORMAL);
 
-        uAmbientTextureUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT_AMBIENT);
         uDiffuseTextureUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT_DIFFUSE);
         uSpecularTextureUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT_SPECULAR);
         uShininessLocation = glGetUniformLocation(program, U_SHININESS);
@@ -90,13 +83,9 @@ public class ModelProgram extends ShaderProgram {
         return aNormalLocation;
     }
 
-    public void setMatrix(float[] mvp, float[] model) {
+    public void setMatrix(float[] mvp, float[] model,float[] normalMatrix) {
         glUniformMatrix4fv(uMatrixLocation, 1, false, mvp, 0);
         glUniformMatrix4fv(uModelMatrixLocation, 1, false, model, 0);
-        float[] temp = new float[16];
-        float[] normalMatrix = new float[16];
-        Matrix.invertM(temp, 0, model, 0);
-        Matrix.transposeM(normalMatrix, 0, temp, 0);
         glUniformMatrix4fv(uNormalMatrixLocation, 1, false, normalMatrix, 0);
     }
 

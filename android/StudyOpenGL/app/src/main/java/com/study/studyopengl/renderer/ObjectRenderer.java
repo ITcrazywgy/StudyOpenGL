@@ -61,7 +61,7 @@ public class ObjectRenderer extends BaseRenderer {
         rotateM(angel += 1, 0f, 0f, 1f);
         scaleM(0.8f, 0.8f, 0.8f);
 
-        program.setMatrix(getMvpMatrix(), getModelMatrix());
+        program.setMatrix(getMvpMatrix(), getModelMatrix(),getNormalMatrix());
         objModel.draw(program);
     }
 

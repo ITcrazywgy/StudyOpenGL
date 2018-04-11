@@ -30,6 +30,8 @@ public class OBJProgram extends ShaderProgram {
     // Uniform locations
     private final int uMatrixLocation;
     private final int uModelMatrixLocation;
+    private final int uNormalMatrixLocation;
+
     private final int uAmbientTextureUnitLocation;
     private final int uDiffuseTextureUnitLocation;
     private final int uSpecularTextureUnitLocation;
@@ -52,6 +54,8 @@ public class OBJProgram extends ShaderProgram {
         // Retrieve uniform locations for the shader program.
         uMatrixLocation = glGetUniformLocation(program, U_MATRIX);
         uModelMatrixLocation = glGetUniformLocation(program, U_MATRIX_MODEL);
+        uNormalMatrixLocation = glGetUniformLocation(program, U_MATRIX_NORMAL);
+
         uAmbientTextureUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT_AMBIENT);
         uDiffuseTextureUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT_DIFFUSE);
         uSpecularTextureUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT_SPECULAR);
@@ -82,9 +86,10 @@ public class OBJProgram extends ShaderProgram {
         return aNormalLocation;
     }
 
-    public void setMatrix(float[] mvp, float[] model) {
+    public void setMatrix(float[] mvp, float[] model, float[] normalMatrix) {
         glUniformMatrix4fv(uMatrixLocation, 1, false, mvp, 0);
         glUniformMatrix4fv(uModelMatrixLocation, 1, false, model, 0);
+        glUniformMatrix4fv(uNormalMatrixLocation, 1, false, normalMatrix, 0);
     }
 
     public void setMaterial(OBJModel model, MTLMaterial material) {
