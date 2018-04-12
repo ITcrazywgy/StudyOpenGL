@@ -11,15 +11,13 @@ uniform vec3 u_Light_Ambient;
 uniform vec3 u_Light_Diffuse;
 uniform vec3 u_Light_Specular;
 
-
-
 varying vec3 v_FragPos;
-varying vec3 v_Normal;
 uniform vec3 u_Camera;
+varying vec3 v_Normal;
 
 void main()
 {
-    /*// ambient
+    // ambient
     vec3 ambient =u_Light_Ambient * texture2D(u_TextureUnit_Ambient, v_TextureCoordinates).rgb;
 
     // diffuse
@@ -34,6 +32,6 @@ void main()
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), u_Shininess);
     vec3 specular = u_Light_Specular * spec * texture2D(u_TextureUnit_Specular, v_TextureCoordinates).rgb;
 
-    vec3 result = ambient + diffuse + specular;*/
-    gl_FragColor = vec4(1.0,1.0,0.0, 1.0);
+    vec3 result = ambient + diffuse + specular;
+    gl_FragColor = vec4(result, 1.0);
 }

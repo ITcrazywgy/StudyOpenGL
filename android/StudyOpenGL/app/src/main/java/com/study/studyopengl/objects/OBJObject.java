@@ -2,6 +2,7 @@ package com.study.studyopengl.objects;
 
 import com.study.studyopengl.Constants;
 import com.study.studyopengl.data.VertexArray;
+import com.study.studyopengl.model.Model;
 import com.study.studyopengl.parser.MTLMaterial;
 import com.study.studyopengl.parser.OBJFace;
 import com.study.studyopengl.parser.OBJMesh;
@@ -9,6 +10,10 @@ import com.study.studyopengl.parser.OBJModel;
 import com.study.studyopengl.programs.OBJProgram;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,7 +78,15 @@ public class OBJObject {
     public void init() {
         List<Float> vertexData = new ArrayList<>();
         int startVertex = 0;
-        for (OBJMesh mesh : meshes.values()) {
+        List<OBJMesh> values =new ArrayList<>();
+        values.addAll(meshes.values());
+        Collections.sort(values, new Comparator<OBJMesh>() {
+            @Override
+            public int compare(OBJMesh o1, OBJMesh o2) {
+                return o1.getMaterial().getName().compareTo(o2.getMaterial().getName());
+            }
+        });
+        for (OBJMesh mesh : values) {
             int numVertices = 0;
             for (OBJFace face : mesh.getFaces()) {
                 for (int i = 0; i < face.getVertexCount(); i++) {

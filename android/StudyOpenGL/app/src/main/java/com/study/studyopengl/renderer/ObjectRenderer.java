@@ -55,8 +55,8 @@ public class ObjectRenderer extends BaseRenderer {
     public void onDrawFrame(GL10 glUnused) {
         glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
         program.useProgram();
-        setIdentityM(getModelMatrix());
 
+        setIdentityM(getModelMatrix());
         rotateM(-90, 1f, 0f, 0f);
         rotateM(angel += 1, 0f, 0f, 1f);
         scaleM(0.8f, 0.8f, 0.8f);

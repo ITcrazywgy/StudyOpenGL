@@ -23,11 +23,9 @@ public class Ball {
     private static final int STRIDE = TOTAL_COMPONENT_COUNT * BYTES_PER_FLOAT;
 
     private final VertexArray vertexArray;
-    private final float[] ballVertex;
 
     public Ball() {
-        ballVertex = createBallVertex();
-        vertexArray = new VertexArray(ballVertex);
+        vertexArray = new VertexArray(createBallVertex());
     }
 
 
@@ -105,6 +103,6 @@ public class Ball {
     }
 
     public void draw() {
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, ballVertex.length / TOTAL_COMPONENT_COUNT);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, vertexArray.capacity() / TOTAL_COMPONENT_COUNT);
     }
 }

@@ -11,9 +11,8 @@ varying vec3 v_FragPos;
 
 void main()                    
 {
-    gl_Position = vec4(a_Position,1.0);
-    //gl_Position = u_Matrix * vec4(a_Position,1.0);
-   /* v_TextureCoordinates = a_TextureCoordinates;
+    gl_Position = u_Matrix * vec4(a_Position,1.0);
+    v_TextureCoordinates = a_TextureCoordinates;
     v_Normal = mat3(u_Matrix_Normal) * a_Normal;
-    v_FragPos = vec3(u_Matrix_Model * vec4(a_Position, 1.0));*/
+    v_FragPos = vec3(u_Matrix_Model * vec4(a_Position, 1.0));
 }

@@ -1,9 +1,7 @@
 package com.study.studyopengl.model;
 
 import android.content.Context;
-import android.opengl.GLES20;
 
-import com.study.studyopengl.Constants;
 import com.study.studyopengl.data.VertexArray;
 import com.study.studyopengl.util.TextureHelper;
 
@@ -12,10 +10,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.opengl.GLES20.GL_TRIANGLES;
+import static android.opengl.GLES20.glDrawArrays;
 import static com.study.studyopengl.Constants.BYTES_PER_FLOAT;
 
 /**
@@ -40,34 +42,113 @@ public class Model {
     private static final String COMMAND_DIFFUSE_TEXTURE = "map_Kd";
     private static final String COMMAND_SPECULAR_TEXTURE = "map_Ks";
 
+    private static final int POSITION_COMPONENT_COUNT = 3;
+    private static final int TEXTURE_COORDINATES_COMPONENT_COUNT = 2;
+    private static final int NORMAL_COMPONENT_COUNT = 3;
+    private static final int TOTAL_COMPONENT_COUNT = POSITION_COMPONENT_COUNT + TEXTURE_COORDINATES_COMPONENT_COUNT + NORMAL_COMPONENT_COUNT;
+    private static final int STRIDE = TOTAL_COMPONENT_COUNT * BYTES_PER_FLOAT;
+
     private String mDirectory;
     private List<Mesh> mMeshes;
+    private VertexArray vertexArray;
+    private List<DrawCommand> drawCommands = new ArrayList<>();
 
     public Model(Context context, String path) {
         int i = path.lastIndexOf('/');
         this.mDirectory = i != -1 ? path.substring(0, i) + "/" : "";
         this.mMeshes = new ArrayList<>();
-        try {
-            loadModel(context, path);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        loadModel(context, path);
         prepareData();
     }
 
-    private void prepareData() {
+    private int getTotalVertexCount() {
+        int count = 0;
         for (Mesh mesh : mMeshes) {
-            mesh.prepareData();
+            count += mesh.vertices.size();
         }
+        return count;
+    }
+
+    private void prepareData() {
+        int totalVertexCount = getTotalVertexCount();
+        float[] vertexData = new float[totalVertexCount * TOTAL_COMPONENT_COUNT];
+        int startVertex = 0;
+        Collections.sort(mMeshes, new Comparator<Mesh>() {
+            @Override
+            public int compare(Mesh o1, Mesh o2) {
+                return o1.material.name.compareTo(o2.material.name);
+            }
+        });
+        int offset = 0;
+        for (Mesh mesh : mMeshes) {
+            for (int i = 0; i < mesh.vertices.size(); i++) {
+                Vertex vertex = mesh.vertices.get(i);
+                vertexData[offset++] = vertex.position.x;
+                vertexData[offset++] = vertex.position.y;
+                vertexData[offset++] = vertex.position.z;
+
+                vertexData[offset++] = vertex.texCoord.s;
+                vertexData[offset++] = vertex.texCoord.t;
+
+                vertexData[offset++] = vertex.normal.x;
+                vertexData[offset++] = vertex.normal.y;
+                vertexData[offset++] = vertex.normal.z;
+            }
+            drawCommands.add(new DrawCommand(startVertex, mesh.vertices.size(), mesh.material));
+            startVertex += mesh.vertices.size();
+            //mesh.vertices.clear();
+        }
+        vertexArray = new VertexArray(vertexData);
+    }
+
+    public void bindData(ModelProgram program) {
+        int dataOffset = 0;
+        vertexArray.setVertexAttributePointer(
+                0,
+                program.getPositionAttributeLocation(),
+                POSITION_COMPONENT_COUNT,
+                STRIDE);
+        dataOffset += POSITION_COMPONENT_COUNT;
+
+        vertexArray.setVertexAttributePointer(
+                dataOffset,
+                program.getTextureCoordinatesAttributeLocation(),
+                TEXTURE_COORDINATES_COMPONENT_COUNT,
+                STRIDE);
+        dataOffset += TEXTURE_COORDINATES_COMPONENT_COUNT;
+
+        vertexArray.setVertexAttributePointer(
+                dataOffset,
+                program.getNormalAttributeLocation(),
+                NORMAL_COMPONENT_COUNT,
+                STRIDE);
     }
 
     public void draw(ModelProgram program) {
-        for (Mesh mesh : mMeshes) {
-            mesh.draw(program);
+        for (DrawCommand drawCmd : drawCommands) {
+            drawCmd.draw(program);
         }
     }
 
-    public static class Material {
+    private class DrawCommand {
+        private int startVertex;
+        private int numVertices;
+        private Material material;
+
+        DrawCommand(int startVertex, int numVertices, Material material) {
+            this.startVertex = startVertex;
+            this.numVertices = numVertices;
+            this.material = material;
+        }
+
+        public void draw(ModelProgram program) {
+            program.setMaterial(material);
+            glDrawArrays(GL_TRIANGLES, startVertex, numVertices);
+        }
+    }
+
+
+    static class Material {
         Material(String name) {
             this.name = name;
         }
@@ -86,7 +167,7 @@ public class Model {
             this.textures.add(texture);
         }
 
-        public int getTextureId(String type) {
+        int getTextureId(String type) {
             for (int i = 0; i < textures.size(); i++) {
                 if (textures.get(i).type.equals(type)) {
                     return textures.get(i).id;
@@ -97,72 +178,15 @@ public class Model {
     }
 
     static class Mesh {
-        private static final int POSITION_COMPONENT_COUNT = 3;
-        private static final int TEXTURE_COORDINATES_COMPONENT_COUNT = 2;
-        private static final int NORMAL_COMPONENT_COUNT = 3;
-        private static final int TOTAL_COMPONENT_COUNT = POSITION_COMPONENT_COUNT + TEXTURE_COORDINATES_COMPONENT_COUNT + NORMAL_COMPONENT_COUNT;
-        private static final int STRIDE = TOTAL_COMPONENT_COUNT * BYTES_PER_FLOAT;
+
         List<Vertex> vertices = new ArrayList<>();
         Material material;
-        VertexArray vertexArray;
+
 
         void addVertex(Vertex vertex) {
             this.vertices.add(vertex);
         }
 
-        private int vertexCount = 0;
-
-        void prepareData() {
-            vertexCount = vertices.size();
-            float[] vertexData = new float[vertexCount * TOTAL_COMPONENT_COUNT];
-            int offset = 0;
-            for (int i = 0; i < vertices.size(); i++) {
-                Vertex vertex = vertices.get(i);
-                vertexData[offset++] = vertex.position.x;
-                vertexData[offset++] = vertex.position.y;
-                vertexData[offset++] = vertex.position.z;
-
-                vertexData[offset++] = vertex.texCoord.s;
-                vertexData[offset++] = vertex.texCoord.t;
-
-                vertexData[offset++] = vertex.normal.x;
-                vertexData[offset++] = vertex.normal.y;
-                vertexData[offset++] = vertex.normal.z;
-            }
-            vertexArray = new VertexArray(vertexData);
-            //vertices.clear();
-        }
-
-        private void bindData(ModelProgram program) {
-            int dataOffset = 0;
-            vertexArray.setVertexAttributePointer(
-                    0,
-                    program.getPositionAttributeLocation(),
-                    POSITION_COMPONENT_COUNT,
-                    STRIDE);
-            dataOffset += POSITION_COMPONENT_COUNT;
-
-            vertexArray.setVertexAttributePointer(
-                    dataOffset,
-                    program.getTextureCoordinatesAttributeLocation(),
-                    TEXTURE_COORDINATES_COMPONENT_COUNT,
-                    STRIDE);
-            dataOffset += TEXTURE_COORDINATES_COMPONENT_COUNT;
-
-            vertexArray.setVertexAttributePointer(
-                    dataOffset,
-                    program.getNormalAttributeLocation(),
-                    NORMAL_COMPONENT_COUNT,
-                    STRIDE);
-            if (material != null) {
-                program.setMaterial(material);
-            }
-        }
-
-        public void draw(ModelProgram program) {
-            bindData(program);
-            GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexCount);
-        }
     }
 
     class Vertex {
@@ -178,8 +202,8 @@ public class Model {
     }
 
     public static class Texture {
-        public static String TYPE_TEXTURE_DIFFUSE = "texture_diffuse";
-        public static String TYPE_TEXTURE_SPECULAR = "texture_specular";
+        static String TYPE_TEXTURE_DIFFUSE = "texture_diffuse";
+        static String TYPE_TEXTURE_SPECULAR = "texture_specular";
         public int id;
         public String type;
         public String path;
@@ -208,8 +232,8 @@ public class Model {
         List<Vec3> positions = new ArrayList<>();
         List<Vec3> normals = new ArrayList<>();
         List<Vec2> texCoords = new ArrayList<>();
-        Map<String, Material> materials = new HashMap<>();
-        Map<String, Mesh> meshes = new HashMap<>();
+        Map<String, Material> materialMap = new HashMap<>();
+        Map<String, Mesh> meshMap = new HashMap<>();
         BufferedReader reader = null;
         try {
             InputStream in = context.getResources().getAssets().open(path);
@@ -236,48 +260,42 @@ public class Model {
                     String[] ptnIndex3 = splits[3].split("/");
                     int[] posIndexes = new int[]{Integer.parseInt(ptnIndex[0]) - 1, Integer.parseInt(ptnIndex2[0]) - 1, Integer.parseInt(ptnIndex3[0]) - 1};
                     int[] texIndexes = new int[]{Integer.parseInt(ptnIndex[1]) - 1, Integer.parseInt(ptnIndex2[1]) - 1, Integer.parseInt(ptnIndex3[1]) - 1};
-                    int[] normalIndexes = null;
-                    hasNormal = ptnIndex.length > 2;
-                    if (hasNormal) {
-                        normalIndexes = new int[]{Integer.parseInt(ptnIndex[2]) - 1, Integer.parseInt(ptnIndex2[2]) - 1, Integer.parseInt(ptnIndex3[2]) - 1};
-                    }
+
                     Vec3 position = positions.get(posIndexes[0]);
-                    Vec2 texCoord = texCoords.get(texIndexes[0]);
                     Vec3 position2 = positions.get(posIndexes[1]);
-                    Vec2 texCoord2 = texCoords.get(texIndexes[1]);
                     Vec3 position3 = positions.get(posIndexes[2]);
+                    Vec2 texCoord = texCoords.get(texIndexes[0]);
+                    Vec2 texCoord2 = texCoords.get(texIndexes[1]);
                     Vec2 texCoord3 = texCoords.get(texIndexes[2]);
                     Vertex vertex = new Vertex(position, texCoord, null);
                     Vertex vertex2 = new Vertex(position2, texCoord2, null);
                     Vertex vertex3 = new Vertex(position2, texCoord3, null);
                     Vertex[] vertexes = new Vertex[]{vertex, vertex2, vertex3};
+                    hasNormal = ptnIndex.length > 2;
                     if (hasNormal) {
+                        int[] normalIndexes = new int[]{Integer.parseInt(ptnIndex[2]) - 1, Integer.parseInt(ptnIndex2[2]) - 1, Integer.parseInt(ptnIndex3[2]) - 1};
                         for (int i = 0; i < 3; i++) {
                             vertexes[i].normal = normals.get(normalIndexes[i]);
+                            addNormalForAverage(posIndexNormalsMap, posIndexes[i], vertexes[i].normal);
                         }
                     } else {
                         Vec3 n = VectorHelper.vectorBetween(position, position2).crossProduct(VectorHelper.vectorBetween(position, position3));
                         for (int i = 0; i < 3; i++) {
                             vertexes[i].normal = new Vec3(n.x, n.y, n.z);
-                            List<Vec3> normalsPreAverage = posIndexNormalsMap.get(posIndexes[i]);
-                            if (normalsPreAverage == null) {
-                                normalsPreAverage = new ArrayList<>();
-                                posIndexNormalsMap.put(posIndexes[i],normalsPreAverage);
-                            }
-                            normalsPreAverage.add(vertexes[i].normal);
+                            addNormalForAverage(posIndexNormalsMap, posIndexes[i], vertexes[i].normal);
                         }
                     }
                     mesh.addVertex(vertex);
                     mesh.addVertex(vertex2);
                     mesh.addVertex(vertex3);
                 } else if (COMMAND_MATERIAL_LIB.equals(splits[0])) {
-                    loadMaterials(context, materials, splits[1]);
+                    loadMaterials(context, materialMap, splits[1]);
                 } else if (COMMAND_USE_MATERIAL.equals(splits[0])) {
-                    mesh = meshes.get(splits[1]);
+                    mesh = meshMap.get(splits[1]);
                     if (mesh == null) {
                         mesh = new Mesh();
-                        mesh.material = materials.get(splits[1]);
-                        meshes.put(splits[1], mesh);
+                        mesh.material = materialMap.get(splits[1]);
+                        meshMap.put(splits[1], mesh);
                         mMeshes.add(mesh);
                     }
                 }
@@ -296,6 +314,16 @@ public class Model {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void addNormalForAverage(Map<Integer, List<Vec3>> posIndexNormalsMap, int posIndex, Vec3 normal) {
+        List<Vec3> normalsPreAverage = posIndexNormalsMap.get(posIndex);
+        if (normalsPreAverage == null) {
+            normalsPreAverage = new ArrayList<>();
+            //一个顶点可以对应多个法向量
+            posIndexNormalsMap.put(posIndex, normalsPreAverage);
+        }
+        normalsPreAverage.add(normal);
     }
 
     private void averageNormals(Map<Integer, List<Vec3>> posIndexNormalsMap) {
@@ -318,6 +346,7 @@ public class Model {
 
     private Map<String, Integer> loadedTextures = new HashMap<>();
 
+    //加载材质库
     private void loadMaterials(Context context, Map<String, Material> materials, String libraryName) {
         BufferedReader reader = null;
         try {

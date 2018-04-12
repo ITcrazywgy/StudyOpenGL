@@ -28,6 +28,11 @@ public class VertexArray {
                 .asFloatBuffer()
                 .put(vertexData);
         floatBuffer.position(0);
+        floatBuffer.capacity();
+    }
+
+    public int capacity() {
+        return floatBuffer.capacity();
     }
 
     public VertexArray(List<Float> vertexData) {

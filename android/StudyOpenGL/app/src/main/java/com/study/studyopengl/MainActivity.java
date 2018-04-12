@@ -19,6 +19,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.study.studyopengl.renderer.BallRenderer;
 import com.study.studyopengl.renderer.ModelRenderer;
 import com.study.studyopengl.renderer.ObjectRenderer;
 
