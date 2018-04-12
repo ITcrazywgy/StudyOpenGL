@@ -4,9 +4,6 @@ import android.content.Context;
 
 import com.study.studyopengl.model.Model;
 import com.study.studyopengl.model.ModelProgram;
-import com.study.studyopengl.parser.OBJModel;
-import com.study.studyopengl.programs.OBJProgram;
-import com.study.studyopengl.util.OBJLoader;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -36,7 +33,7 @@ public class ModelRenderer extends BaseRenderer {
         glClearColor(0f, 0f, 0f, 1.0f);
         glEnable(GL_DEPTH_TEST);
         program = new ModelProgram(context);
-        model = new Model(context, "dragon.obj");
+        model = new Model(context, "dragon/dragon.obj");
     }
 
     @Override
@@ -63,6 +60,7 @@ public class ModelRenderer extends BaseRenderer {
         scaleM(0.8f, 0.8f, 0.8f);
 
         program.setMatrix(getMvpMatrix(), getModelMatrix(), getNormalMatrix());
+        program.setLightPosition(0, 0, 20);
         model.bindData(program);
         model.draw(program);
     }

@@ -121,7 +121,7 @@ public class ModelProgram extends ShaderProgram {
         glUniform3f(uLightAmbientLocation, ambientColor.r, ambientColor.g, ambientColor.b);
         glUniform3f(uLightDiffuseLocation, diffuseColor.r, diffuseColor.g, diffuseColor.b);
         glUniform3f(uLightSpecularLocation, specularColor.r, specularColor.g, specularColor.b);
-        glUniform3f(uLightPositionLocation, 0, 0, 20);
+
         float specularExponent = material.Ns;
         glUniform1f(uShininessLocation, specularExponent);
     }

@@ -1,14 +1,20 @@
 package com.study.studyopengl.model;
 
 import android.content.Context;
+import android.os.Environment;
 
 import com.study.studyopengl.data.VertexArray;
 import com.study.studyopengl.util.TextureHelper;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -58,7 +64,9 @@ public class Model {
         this.mDirectory = i != -1 ? path.substring(0, i) + "/" : "";
         this.mMeshes = new ArrayList<>();
         loadModel(context, path);
+
         prepareData();
+
     }
 
     private int getTotalVertexCount() {
@@ -93,10 +101,11 @@ public class Model {
                 vertexData[offset++] = vertex.normal.x;
                 vertexData[offset++] = vertex.normal.y;
                 vertexData[offset++] = vertex.normal.z;
+
             }
             drawCommands.add(new DrawCommand(startVertex, mesh.vertices.size(), mesh.material));
             startVertex += mesh.vertices.size();
-            //mesh.vertices.clear();
+            mesh.vertices.clear();
         }
         vertexArray = new VertexArray(vertexData);
     }
@@ -269,7 +278,7 @@ public class Model {
                     Vec2 texCoord3 = texCoords.get(texIndexes[2]);
                     Vertex vertex = new Vertex(position, texCoord, null);
                     Vertex vertex2 = new Vertex(position2, texCoord2, null);
-                    Vertex vertex3 = new Vertex(position2, texCoord3, null);
+                    Vertex vertex3 = new Vertex(position3, texCoord3, null);
                     Vertex[] vertexes = new Vertex[]{vertex, vertex2, vertex3};
                     hasNormal = ptnIndex.length > 2;
                     if (hasNormal) {
@@ -289,7 +298,7 @@ public class Model {
                     mesh.addVertex(vertex2);
                     mesh.addVertex(vertex3);
                 } else if (COMMAND_MATERIAL_LIB.equals(splits[0])) {
-                    loadMaterials(context, materialMap, splits[1]);
+                    loadMaterials(context, materialMap, mDirectory + splits[1]);
                 } else if (COMMAND_USE_MATERIAL.equals(splits[0])) {
                     mesh = meshMap.get(splits[1]);
                     if (mesh == null) {
@@ -300,9 +309,9 @@ public class Model {
                     }
                 }
             }
-            if (!hasNormal) {
-                averageNormals(posIndexNormalsMap);
-            }
+
+            averageNormals(posIndexNormalsMap);
+
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
