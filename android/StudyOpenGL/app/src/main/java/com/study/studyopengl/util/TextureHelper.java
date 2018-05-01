@@ -11,10 +11,16 @@ package com.study.studyopengl.util;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.opengl.ETC1;
+import android.opengl.ETC1Util;
+import android.opengl.GLES20;
 import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 
 import static android.opengl.GLES20.GL_CLAMP_TO_EDGE;
 import static android.opengl.GLES20.GL_LINEAR;
@@ -136,6 +142,72 @@ public class TextureHelper {
         glBindTexture(GL_TEXTURE_2D, 0);
 
         return textureObjectIds[0];
+    }
+
+
+    public static int loadETC1Texture(InputStream input, int[] textureWH) {
+        final int[] textureObjectIds = new int[1];
+        glGenTextures(1, textureObjectIds, 0);
+        if (textureObjectIds[0] == 0) {
+            Log.w(TAG, "Could not generate a new OpenGL texture object.");
+            return 0;
+        }
+        ETC1Util.ETC1Texture etc1Texture = createETC1Texture(input);
+        if (etc1Texture == null) return 0;
+        if (textureWH != null && textureWH.length == 2) {
+            textureWH[0] = etc1Texture.getWidth();
+            textureWH[1] = etc1Texture.getHeight();
+        }
+        GLES20.glBindTexture(GL_TEXTURE_2D, textureObjectIds[0]);
+        GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_NEAREST);
+        GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR);
+        GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_CLAMP_TO_EDGE);
+        GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE);
+
+        ETC1Util.loadTexture(GLES20.GL_TEXTURE_2D, 0, 0, GLES20.GL_RGB, GLES20.GL_UNSIGNED_SHORT_5_6_5, etc1Texture);
+        glBindTexture(GL_TEXTURE_2D, 0);
+        return textureObjectIds[0];
+    }
+
+
+    private static ETC1Util.ETC1Texture createETC1Texture(InputStream input) {
+        try {
+            if (input != null) {
+                byte[] buffer = new byte[4096];
+                if (input.read(buffer, 0, ETC1.ETC_PKM_HEADER_SIZE) != ETC1.ETC_PKM_HEADER_SIZE) {
+                    throw new IOException("Unable to read PKM file header.");
+                }
+                ByteBuffer headerBuffer = ByteBuffer.allocateDirect(ETC1.ETC_PKM_HEADER_SIZE).order(ByteOrder.nativeOrder());
+                headerBuffer.put(buffer, 0, ETC1.ETC_PKM_HEADER_SIZE).position(0);
+                if (!ETC1.isValid(headerBuffer)) {
+                    throw new IOException("Not a PKM file.");
+                }
+                int width = ETC1.getWidth(headerBuffer);
+                int height = ETC1.getHeight(headerBuffer);
+                int encodedDataSize = ETC1.getEncodedDataSize(width, height);
+                ByteBuffer dataBuffer = ByteBuffer.allocateDirect(encodedDataSize).order(ByteOrder.nativeOrder());
+                int len;
+                while ((len = input.read(buffer)) != -1) {
+                    dataBuffer.put(buffer, 0, len);
+                }
+                dataBuffer.position(0);
+                return new ETC1Util.ETC1Texture(width, height, dataBuffer);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public static void createEmptyTexture(int textureId, int width, int height, int format) {
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureId);
+        GLES20.glTexImage2D(GLES20.GL_TEXTURE_2D, 0, GLES20.GL_RGBA, width, height, 0, format, GLES20.GL_UNSIGNED_BYTE, null);
+        GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_NEAREST);
+        GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR);
+        GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_CLAMP_TO_EDGE);
+        GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE);
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
     }
 
 }
