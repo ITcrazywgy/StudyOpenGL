@@ -5,7 +5,6 @@ import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 
 import com.study.studyopengl.camera.program.OESTextureFilterProgram;
-import com.study.studyopengl.util.MatrixHelper;
 import com.study.studyopengl.util.TextureHelper;
 
 /**
@@ -19,9 +18,13 @@ public class CameraFilter extends AbsFilter {
     private int[] mTextureIds;
     private int mWidth;
     private int mHeight;
-    private float[] mFitCenterMatrix;
+    private float[] mMatrix;
     private int[] mCameraTextures = new int[1];
     private SurfaceTexture mSurfaceTexture;
+
+    public void setMatrix(float[] matrix) {
+        this.mMatrix = matrix;
+    }
 
     @Override
     public void onSurfaceCreated(Context context) {
@@ -31,7 +34,7 @@ public class CameraFilter extends AbsFilter {
     }
 
     @Override
-    public void onSurfaceChanged(int width, int height, int previewWidth, int previewHeight) {
+    public void onSurfaceChanged(int width, int height) {
         this.mWidth = width;
         this.mHeight = height;
         deleteBuffers();
@@ -44,8 +47,6 @@ public class CameraFilter extends AbsFilter {
         GLES20.glFramebufferTexture2D(GLES20.GL_FRAMEBUFFER, GLES20.GL_COLOR_ATTACHMENT0, GLES20.GL_TEXTURE_2D, mTextureIds[0], 0);
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
         GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
-
-        mFitCenterMatrix = MatrixHelper.getFitCenterMatrix(width, height, previewWidth, previewHeight);
     }
 
 
@@ -62,7 +63,6 @@ public class CameraFilter extends AbsFilter {
                 STRIDE);
     }
 
-    private float[] mCoordinatesMatrix = new float[16];
 
     @Override
     public void onDrawFrame() {
@@ -77,7 +77,7 @@ public class CameraFilter extends AbsFilter {
         if (mSurfaceTexture != null) {
             mSurfaceTexture.updateTexImage();
         }
-        mProgram.setUniforms(mFitCenterMatrix, mCameraTextures[0]);
+        mProgram.setUniforms(mMatrix, mCameraTextures[0]);
         bindData();
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, mVertexArray.capacity() / TOTAL_COMPONENT_COUNT);
         //GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);

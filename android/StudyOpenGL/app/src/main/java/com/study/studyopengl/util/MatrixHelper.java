@@ -38,11 +38,7 @@ public class MatrixHelper {
     }
 
 
-    public static float[] getFitCenterMatrix(int widgetWidth, int widgetHeight, int texWidth, int texHeight) {
-        float[] matrix = new float[16];
-        float[] view = new float[16];
-        float[] projection = new float[16];
-
+    public static float[] getFitCenterProjection(float[] projection, int widgetWidth, int widgetHeight, int texWidth, int texHeight) {
         float widgetRatio = (float) widgetWidth / widgetHeight;
         float texRatio = (float) texWidth / texHeight;
         if (texRatio > widgetRatio) {
@@ -50,8 +46,6 @@ public class MatrixHelper {
         } else {
             Matrix.orthoM(projection, 0, -widgetRatio / texRatio, widgetRatio / texRatio, -1, 1, 1, 3);
         }
-        Matrix.setLookAtM(view, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0);
-        Matrix.multiplyMM(matrix, 0, projection, 0, view, 0);
         return projection;
     }
 

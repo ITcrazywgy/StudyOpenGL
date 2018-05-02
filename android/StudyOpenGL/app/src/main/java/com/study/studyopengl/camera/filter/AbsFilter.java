@@ -37,7 +37,7 @@ public abstract class AbsFilter {
 
     public abstract void onSurfaceCreated(Context context);
 
-    public abstract void onSurfaceChanged(int width, int height, int previewWidth, int previewHeight);
+    public abstract void onSurfaceChanged(int width, int height);
 
     public abstract void onSurfaceDestroy();
 
