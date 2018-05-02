@@ -20,6 +20,7 @@ public abstract class ShaderProgram {
 
     // Uniform constants
     protected static final String U_TEXTURE_UNIT = "u_TextureUnit";
+    protected static final String U_TEXTURE_UNIT2 = "u_TextureUnit2";
     protected static final String U_TEXTURE_UNIT_AMBIENT = "u_TextureUnit_Ambient";
     protected static final String U_TEXTURE_UNIT_DIFFUSE = "u_TextureUnit_Diffuse";
     protected static final String U_TEXTURE_UNIT_SPECULAR = "u_TextureUnit_Specular";

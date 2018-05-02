@@ -5,12 +5,14 @@
  * courses, books, articles, and the like. Contact us if you are in doubt.
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/kbogla for more book information.
-***/
+ ***/
 package com.study.studyopengl.util;
+
+import android.opengl.Matrix;
 
 public class MatrixHelper {
     public static void perspectiveM(float[] m, float yFovInDegrees, float aspect,
-        float n, float f) {
+                                    float n, float f) {
         final float angleInRadians = (float) (yFovInDegrees * Math.PI / 180.0);
         final float a = (float) (1.0 / Math.tan(angleInRadians / 2.0));
 
@@ -28,10 +30,29 @@ public class MatrixHelper {
         m[9] = 0f;
         m[10] = -((f + n) / (f - n));
         m[11] = -1f;
-        
+
         m[12] = 0f;
         m[13] = 0f;
         m[14] = -((2f * f * n) / (f - n));
-        m[15] = 0f;        
+        m[15] = 0f;
     }
+
+
+    public static float[] getFitCenterMatrix(int widgetWidth, int widgetHeight, int texWidth, int texHeight) {
+        float[] matrix = new float[16];
+        float[] view = new float[16];
+        float[] projection = new float[16];
+
+        float widgetRatio = (float) widgetWidth / widgetHeight;
+        float texRatio = (float) texWidth / texHeight;
+        if (texRatio > widgetRatio) {
+            Matrix.orthoM(projection, 0, -1, 1, -texRatio / widgetRatio, texRatio / widgetRatio, 1, 3);
+        } else {
+            Matrix.orthoM(projection, 0, -widgetRatio / texRatio, widgetRatio / texRatio, -1, 1, 1, 3);
+        }
+        Matrix.setLookAtM(view, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0);
+        Matrix.multiplyMM(matrix, 0, projection, 0, view, 0);
+        return matrix;
+    }
+
 }
