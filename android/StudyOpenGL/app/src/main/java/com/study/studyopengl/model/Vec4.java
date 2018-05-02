@@ -5,5 +5,5 @@ package com.study.studyopengl.model;
  */
 
 public class Vec4 {
-    public float x, y, z, w, r, g, b, a;
+    public float x, y, z, w;
 }

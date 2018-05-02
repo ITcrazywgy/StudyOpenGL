@@ -115,9 +115,9 @@ public class ModelProgram extends ShaderProgram {
             glBindTexture(GL_TEXTURE_2D, specularTexId);
             glUniform1i(uSpecularTextureUnitLocation, 1);
         }
-        Vec3 ambientColor = material.Ka;
-        Vec3 diffuseColor = material.Kd;
-        Vec3 specularColor = material.Ks;
+        Color ambientColor = material.Ka;
+        Color diffuseColor = material.Kd;
+        Color specularColor = material.Ks;
         glUniform3f(uLightAmbientLocation, ambientColor.r, ambientColor.g, ambientColor.b);
         glUniform3f(uLightDiffuseLocation, diffuseColor.r, diffuseColor.g, diffuseColor.b);
         glUniform3f(uLightSpecularLocation, specularColor.r, specularColor.g, specularColor.b);

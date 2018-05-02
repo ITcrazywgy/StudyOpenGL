@@ -1,27 +1,21 @@
 package com.study.studyopengl.model;
 
-import com.study.studyopengl.geometry.Vector;
-
 /**
  * Created by Felix on 2018/4/7 22:57
  */
 
 public class Vec3 {
+
     public Vec3() {
     }
 
-    public Vec3(float arg1, float arg2, float arg3) {
-        this.x = arg1;
-        this.y = arg2;
-        this.z = arg3;
-        this.r = arg1;
-        this.g = arg2;
-        this.b = arg3;
-        this.s = arg1;
-        this.t = arg2;
+    public Vec3(float x, float y, float z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
-    public float x, y, z, s, t, r, g, b;
+    public float x, y, z;
 
     public float length() {
         return (float) Math.sqrt(

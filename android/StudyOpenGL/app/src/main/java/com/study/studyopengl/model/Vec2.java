@@ -5,12 +5,10 @@ package com.study.studyopengl.model;
  */
 
 public class Vec2 {
-    public Vec2(float arg1, float arg2) {
-        this.s = arg1;
-        this.t = arg2;
-        this.x = arg1;
-        this.y = arg2;
+    public Vec2(float x, float y) {
+        this.x = x;
+        this.y = y;
     }
 
-    public float x, y, s, t;
+    public float x, y;
 }

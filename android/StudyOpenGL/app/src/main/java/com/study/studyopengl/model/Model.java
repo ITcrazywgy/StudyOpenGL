@@ -163,9 +163,9 @@ public class Model {
         }
 
         String name;
-        Vec3 Ka;// 0.588235 0.588235 0.588235
-        Vec3 Kd;// 1 1 1
-        Vec3 Ks;// 0.90.90.9
+        Color Ka;// 0.588235 0.588235 0.588235
+        Color Kd;// 1 1 1
+        Color Ks;// 0.90.90.9
         float Ns;// 4
         List<Texture> textures = new ArrayList<>();
 
@@ -201,9 +201,9 @@ public class Model {
     class Vertex {
         public Vec3 position;
         public Vec3 normal;
-        public Vec2 texCoord;
+        public TexCoord texCoord;
 
-        Vertex(Vec3 position, Vec2 texCoord, Vec3 normal) {
+        Vertex(Vec3 position, TexCoord texCoord, Vec3 normal) {
             this.position = position;
             this.texCoord = texCoord;
             this.normal = normal;
@@ -240,7 +240,7 @@ public class Model {
     private void loadModel(Context context, String path) {
         List<Vec3> positions = new ArrayList<>();
         List<Vec3> normals = new ArrayList<>();
-        List<Vec2> texCoords = new ArrayList<>();
+        List<TexCoord> texCoords = new ArrayList<>();
         Map<String, Material> materialMap = new HashMap<>();
         Map<String, Mesh> meshMap = new HashMap<>();
         BufferedReader reader = null;
@@ -256,7 +256,7 @@ public class Model {
                 if (COMMAND_POSITION.equals(splits[0])) {
                     positions.add(new Vec3(Float.parseFloat(splits[1]), Float.parseFloat(splits[2]), Float.parseFloat(splits[3])));
                 } else if (COMMAND_TEXCOORD.equals(splits[0])) {
-                    texCoords.add(new Vec2(Float.parseFloat(splits[1]), Float.parseFloat(splits[2])));
+                    texCoords.add(new TexCoord(Float.parseFloat(splits[1]), Float.parseFloat(splits[2])));
                 } else if (COMMAND_NORMAL.equals(splits[0])) {
                     normals.add(new Vec3(Float.parseFloat(splits[1]), Float.parseFloat(splits[2]), Float.parseFloat(splits[3])));
                 } else if (COMMAND_FACE.equals(splits[0])) {
@@ -273,9 +273,11 @@ public class Model {
                     Vec3 position = positions.get(posIndexes[0]);
                     Vec3 position2 = positions.get(posIndexes[1]);
                     Vec3 position3 = positions.get(posIndexes[2]);
-                    Vec2 texCoord = texCoords.get(texIndexes[0]);
-                    Vec2 texCoord2 = texCoords.get(texIndexes[1]);
-                    Vec2 texCoord3 = texCoords.get(texIndexes[2]);
+
+                    TexCoord texCoord = texCoords.get(texIndexes[0]);
+                    TexCoord texCoord2 = texCoords.get(texIndexes[1]);
+                    TexCoord texCoord3 = texCoords.get(texIndexes[2]);
+
                     Vertex vertex = new Vertex(position, texCoord, null);
                     Vertex vertex2 = new Vertex(position2, texCoord2, null);
                     Vertex vertex3 = new Vertex(position3, texCoord3, null);
@@ -373,7 +375,7 @@ public class Model {
                     }
                 } else if (COMMAND_AMBIENT_COLOR.equalsIgnoreCase(split[0])) {
                     if (material != null) {
-                        material.Ka = new Vec3(
+                        material.Ka = new Color(
                                 Float.parseFloat(split[1]),
                                 Float.parseFloat(split[2]),
                                 Float.parseFloat(split[3])
@@ -381,7 +383,7 @@ public class Model {
                     }
                 } else if (COMMAND_DIFFUSE_COLOR.equalsIgnoreCase(split[0])) {
                     if (material != null) {
-                        material.Kd = new Vec3(
+                        material.Kd = new Color(
                                 Float.parseFloat(split[1]),
                                 Float.parseFloat(split[2]),
                                 Float.parseFloat(split[3])
@@ -389,7 +391,7 @@ public class Model {
                     }
                 } else if (COMMAND_SPECULAR_COLOR.equalsIgnoreCase(split[0])) {
                     if (material != null) {
-                        material.Ks = new Vec3(
+                        material.Ks = new Color(
                                 Float.parseFloat(split[1]),
                                 Float.parseFloat(split[2]),
                                 Float.parseFloat(split[3])
