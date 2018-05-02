@@ -41,6 +41,6 @@ public abstract class AbsFilter {
 
     public abstract void onSurfaceDestroy();
 
-    public abstract void onDrawFrame(int textureId);
+    public abstract void onDrawFrame();
 
 }

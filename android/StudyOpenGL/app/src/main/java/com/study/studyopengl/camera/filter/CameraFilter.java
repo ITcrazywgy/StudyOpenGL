@@ -1,6 +1,7 @@
 package com.study.studyopengl.camera.filter;
 
 import android.content.Context;
+import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 
 import com.study.studyopengl.camera.program.OESTextureFilterProgram;
@@ -15,28 +16,32 @@ public class CameraFilter extends AbsFilter {
 
     private OESTextureFilterProgram mProgram;
     private int[] mFramebufferIds;
-    private int[] mOutputTextureIds;
+    private int[] mTextureIds;
     private int mWidth;
     private int mHeight;
     private float[] mFitCenterMatrix;
+    private int[] mCameraTextures = new int[1];
+    private SurfaceTexture mSurfaceTexture;
 
     @Override
     public void onSurfaceCreated(Context context) {
         mProgram = new OESTextureFilterProgram(context);
+        GLES20.glGenTextures(1, mCameraTextures, 0);
+        mSurfaceTexture = new SurfaceTexture(mCameraTextures[0]);
     }
 
     @Override
     public void onSurfaceChanged(int width, int height, int previewWidth, int previewHeight) {
         this.mWidth = width;
         this.mHeight = height;
-        destroyFrameBuffers();
+        deleteBuffers();
         mFramebufferIds = new int[1];
-        mOutputTextureIds = new int[1];
+        mTextureIds = new int[1];
         GLES20.glGenFramebuffers(1, mFramebufferIds, 0);
-        GLES20.glGenTextures(1, mOutputTextureIds, 0);
-        TextureHelper.createEmptyTexture(mOutputTextureIds[0], width, height, GLES20.GL_RGBA);
+        GLES20.glGenTextures(1, mTextureIds, 0);
+        TextureHelper.createEmptyTexture(mTextureIds[0], width, height, GLES20.GL_RGBA);
         GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, mFramebufferIds[0]);
-        GLES20.glFramebufferTexture2D(GLES20.GL_FRAMEBUFFER, GLES20.GL_COLOR_ATTACHMENT0, GLES20.GL_TEXTURE_2D, mOutputTextureIds[0], 0);
+        GLES20.glFramebufferTexture2D(GLES20.GL_FRAMEBUFFER, GLES20.GL_COLOR_ATTACHMENT0, GLES20.GL_TEXTURE_2D, mTextureIds[0], 0);
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, 0);
         GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
 
@@ -57,9 +62,10 @@ public class CameraFilter extends AbsFilter {
                 STRIDE);
     }
 
+    private float[] mCoordinatesMatrix = new float[16];
 
     @Override
-    public void onDrawFrame(int inputTextureId) {
+    public void onDrawFrame() {
         boolean isDepthTestEnable = GLES20.glIsEnabled(GLES20.GL_DEPTH_TEST);
         if (isDepthTestEnable) {
             GLES20.glDisable(GLES20.GL_DEPTH_TEST);
@@ -68,7 +74,10 @@ public class CameraFilter extends AbsFilter {
         //GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, mFramebufferIds[0]);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         mProgram.useProgram();
-        mProgram.setUniforms(mFitCenterMatrix, inputTextureId);
+        if (mSurfaceTexture != null) {
+            mSurfaceTexture.updateTexImage();
+        }
+        mProgram.setUniforms(mFitCenterMatrix, mCameraTextures[0]);
         bindData();
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, mVertexArray.capacity() / TOTAL_COMPONENT_COUNT);
         //GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
@@ -77,10 +86,10 @@ public class CameraFilter extends AbsFilter {
         }
     }
 
-    private void destroyFrameBuffers() {
-        if (mOutputTextureIds != null) {
-            GLES20.glDeleteTextures(mOutputTextureIds.length, mOutputTextureIds, 0);
-            mOutputTextureIds = null;
+    private void deleteBuffers() {
+        if (mTextureIds != null) {
+            GLES20.glDeleteTextures(mTextureIds.length, mTextureIds, 0);
+            mTextureIds = null;
         }
         if (mFramebufferIds != null) {
             GLES20.glDeleteFramebuffers(mFramebufferIds.length, mFramebufferIds, 0);
@@ -90,7 +99,10 @@ public class CameraFilter extends AbsFilter {
 
     @Override
     public void onSurfaceDestroy() {
-        destroyFrameBuffers();
+        deleteBuffers();
     }
 
+    public SurfaceTexture getSurfaceTexture() {
+        return mSurfaceTexture;
+    }
 }

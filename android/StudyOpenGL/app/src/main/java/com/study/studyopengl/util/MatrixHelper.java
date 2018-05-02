@@ -52,7 +52,7 @@ public class MatrixHelper {
         }
         Matrix.setLookAtM(view, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0);
         Matrix.multiplyMM(matrix, 0, projection, 0, view, 0);
-        return matrix;
+        return projection;
     }
 
 }
