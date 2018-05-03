@@ -28,13 +28,6 @@ public abstract class AbsFilter {
         mVertexArray = new VertexArray(VERTEX_DATA);
     }
 
-
-   /* private AbsFilter mNextFilter;
-
-    public void nextFilter(AbsFilter nextFilter) {
-        this.mNextFilter = nextFilter;
-    }*/
-
     public abstract void onSurfaceCreated(Context context);
 
     public abstract void onSurfaceChanged(int width, int height);

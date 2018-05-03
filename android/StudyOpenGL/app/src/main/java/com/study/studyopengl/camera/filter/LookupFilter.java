@@ -48,21 +48,14 @@ public class LookupFilter extends AbsFilter {
 
     @Override
     public void onDrawFrame(int inputTextureId) {
-        boolean isDepthTestEnable = GLES20.glIsEnabled(GLES20.GL_DEPTH_TEST);
-        if (isDepthTestEnable) {
-            GLES20.glDisable(GLES20.GL_DEPTH_TEST);
-        }
         GLES20.glViewport(0, 0, mWidth, mHeight);
        // GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, mFramebufferIds[0]);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         mProgram.useProgram();
-        mProgram.setUniforms(mMatrix, inputTextureId, mMaskTextureId, 0.5f);
+        mProgram.setUniforms(mMatrix, inputTextureId, mMaskTextureId, 0.0f);
         bindData();
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, mVertexArray.capacity() / TOTAL_COMPONENT_COUNT);
        // GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
-        if (isDepthTestEnable) {
-            GLES20.glEnable(GLES20.GL_DEPTH_TEST);
-        }
     }
 
     public void bindData() {

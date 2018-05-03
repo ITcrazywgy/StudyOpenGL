@@ -269,6 +269,7 @@ public class CameraView extends GLSurfaceView implements GLSurfaceView.Renderer 
 
         Matrix.setIdentityM(matrix, 0);
         mLookupFilter.setMatrix(matrix);
+        mLookupFilter.onSurfaceChanged(width, height);
     }
 
     @Override
