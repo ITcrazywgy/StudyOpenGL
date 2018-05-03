@@ -39,8 +39,6 @@ public abstract class AbsFilter {
 
     public abstract void onSurfaceChanged(int width, int height);
 
-    public abstract void onSurfaceDestroy();
-
-    public abstract void onDrawFrame();
+    public abstract void onDrawFrame(int inputTextureId);
 
 }
