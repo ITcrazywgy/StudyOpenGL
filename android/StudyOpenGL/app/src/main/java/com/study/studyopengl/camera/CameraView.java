@@ -21,16 +21,15 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.Size;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 
+import com.study.studyopengl.camera.filter.AbsFilter;
 import com.study.studyopengl.camera.filter.LookupFilter;
 import com.study.studyopengl.camera.filter.TextureFilter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -46,9 +45,7 @@ public class CameraView extends GLSurfaceView implements GLSurfaceView.Renderer 
 
     private Handler mBackgroundHandler;
     private int mCameraId = 0;
-
     private Integer mSensorOrientation;
-    private Size mPreviewSize;
 
 
     public CameraView(Context context) {
@@ -81,11 +78,13 @@ public class CameraView extends GLSurfaceView implements GLSurfaceView.Renderer 
         }
 
         private void createCameraPreviewSession() {
-            Surface surface = new Surface(getSurfaceTexture());
+            Surface surface = new Surface(mSurfaceTexture);
             try {
                 final CaptureRequest.Builder requestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
                 requestBuilder.addTarget(surface);
-                mCameraDevice.createCaptureSession(Arrays.asList(surface), new CameraCaptureSession.StateCallback() {
+                List<Surface> surfaces = new ArrayList<>(1);
+                surfaces.add(surface);
+                mCameraDevice.createCaptureSession(surfaces, new CameraCaptureSession.StateCallback() {
                     @Override
                     public void onConfigured(@NonNull CameraCaptureSession session) {
                         try {
@@ -133,9 +132,7 @@ public class CameraView extends GLSurfaceView implements GLSurfaceView.Renderer 
     private Semaphore mCameraOpenCloseLock = new Semaphore(1);
 
     private void openCamera(int width, int height) {
-        calcPreviewSize(width, height);
-        generateSurfaceTexture();
-        getSurfaceTexture().setDefaultBufferSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
+        configurePreviewSize(width, height);
         CameraManager manager = (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
         try {
             if (!mCameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
@@ -164,9 +161,8 @@ public class CameraView extends GLSurfaceView implements GLSurfaceView.Renderer 
         }
     }
 
-    private static final String TAG = "CameraView";
 
-    private void calcPreviewSize(int width, int height) {
+    private void configurePreviewSize(int width, int height) {
         CameraManager manager = (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
         try {
             assert manager != null;
@@ -192,16 +188,18 @@ public class CameraView extends GLSurfaceView implements GLSurfaceView.Renderer 
                         swappedDimensions = true;
                     }
                     break;
-                default:
-                    Log.e(TAG, "Display rotation is invalid: " + displayRotation);
             }
 
             Size[] choices = map.getOutputSizes(SurfaceHolder.class);
+            Size previewSize;
             if (swappedDimensions) {
-                mPreviewSize = chooseOptimalSize(choices, height, width);
+                previewSize = chooseOptimalSize(choices, height, width);
             } else {
-                mPreviewSize = chooseOptimalSize(choices, width, height);
+                previewSize = chooseOptimalSize(choices, width, height);
             }
+            GLES20.glGenTextures(1, mSurfaceTextureIds, 0);
+            mSurfaceTexture = new SurfaceTexture(mSurfaceTextureIds[0]);
+            mSurfaceTexture.setDefaultBufferSize(previewSize.getWidth(), previewSize.getHeight());
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
@@ -250,14 +248,14 @@ public class CameraView extends GLSurfaceView implements GLSurfaceView.Renderer 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         openCamera(getWidth(), getHeight());
-        mTextureFilter = new TextureFilter();
+        mTextureFilter = new TextureFilter(AbsFilter.TEXTURE_FLIP_VERTICAL);
         mTextureFilter.onSurfaceCreated(getContext());
-        mLookupFilter = new LookupFilter();
+        mLookupFilter = new LookupFilter(AbsFilter.TEXTURE_FLIP_VERTICAL);
         mLookupFilter.onSurfaceCreated(getContext());
     }
 
     float[] model = new float[16];
-    float[] projection = new float[16];
+    //float[] projection = new float[16];
     float[] matrix = new float[16];
 
     @Override
@@ -266,7 +264,6 @@ public class CameraView extends GLSurfaceView implements GLSurfaceView.Renderer 
         Matrix.rotateM(model, 0, getRotateAngle(), 0f, 0f, 1f);
         mTextureFilter.setMatrix(model);
         mTextureFilter.onSurfaceChanged(width, height);
-
         Matrix.setIdentityM(matrix, 0);
         mLookupFilter.setMatrix(matrix);
         mLookupFilter.onSurfaceChanged(width, height);
@@ -282,15 +279,6 @@ public class CameraView extends GLSurfaceView implements GLSurfaceView.Renderer 
         mLookupFilter.onDrawFrame(mTextureFilter.getTextureId());
     }
 
-
-    public SurfaceTexture getSurfaceTexture() {
-        return mSurfaceTexture;
-    }
-
-    public void generateSurfaceTexture() {
-        GLES20.glGenTextures(1, mSurfaceTextureIds, 0);
-        mSurfaceTexture = new SurfaceTexture(mSurfaceTextureIds[0]);
-    }
 
     private int getRotateAngle() {
         Activity activity = (Activity) getContext();
